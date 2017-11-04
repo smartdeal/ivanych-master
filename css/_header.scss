@@ -1,0 +1,167 @@
+.header {
+    background: url(../img/bg-header.png) top left no-repeat;
+    background-size: contain;
+    @include mn992 {
+        background-size: auto 100px;
+    }
+    @include mn1400 {
+        background-position: 6% top;
+    }
+    &__inner {
+        padding: 10px 0;
+        text-align: center;
+        @include mn992 {
+            padding: 15px 0 20px;
+        }
+    }
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        padding-bottom: 45px;
+        @include mn768 {
+            padding-bottom: 0;
+        }
+        @include mn992 {
+            align-items: flex-end;
+        }
+    }
+    &__logo {
+        width: 100px;
+        @include mn768 {
+            width: auto;
+        }
+        @include mn992 {
+            width: 230px;
+            flex-shrink: 0;
+        }
+    }
+    &__logo-txt {
+        display: none;
+        @include mn768 {
+            display: block;
+        }
+        @include mn992 {
+            margin-top: 10px;
+        }
+    }
+    &__tagline,
+    &__call-btn {
+        display: none;
+        @include mn992 {
+            display: block;
+        }
+    }
+    &__tagline {
+        @include mn992 {
+            text-align: left;
+            margin-bottom: 17px;
+            font-size: 18px;
+        }
+    }
+    &__call-btn {
+        @include mn992 {
+            width: 190px;
+            margin: 10px auto 0;
+        }
+    }
+    &__center {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        @include mn768 {
+            position: static;
+            margin: 0 20px;
+            flex-shrink: 0;
+        }
+        @include mn992 {
+            flex-shrink: 2;
+                max-width: 500px;
+        }
+    }
+    &__search {
+        max-width: 400px;
+        margin: 0 auto;
+        @include mn992 {
+            max-width: none;
+        }
+        &-form {
+            position: relative;
+        }
+        &-input {
+            color: #282828;
+            font-size: 15px;
+            font-weight: 300;
+            padding: 9px 110px 9px 10px;
+            text-overflow: ellipsis;
+        }
+        &-btn {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+    }
+    &__right {
+        @include mn768 {
+            margin: 0 20px;
+        }
+        @include mn992 {
+            width: 200px;
+            flex-shrink: 0;
+        }
+    }
+    &__email,
+    &__tel {
+        display: inline-block;
+        margin: 0 5px;
+        line-height: 1.2;
+    }
+    &__tel {
+        @include icon-bundle-tel;
+        font-size: 18px;
+        font-weight: 700;
+        &:hover {
+            text-decoration: none;
+        }
+        @include mn550 {
+            font-size: 20px;
+        }
+        @include mn992 {
+            margin-top: 5px;
+        }
+    }
+    &__email {
+        @include icon-bundle-email-blue;
+        font-size: 19px;
+        font-weight: 300;
+        text-decoration: underline;
+        color: $color1;
+        &:hover {
+            color: $color1;
+            text-decoration: none;
+        }
+    }
+    &__call-btn {}
+}
+
+.mmenu-btn {
+    width: 30px;
+    display: block;
+    text-decoration: none;
+    @include mn992 {
+        display: none;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+    span {
+        display: block;
+        background: $color1;
+        height: 4px;
+        &+span {
+            margin-top: 4px;
+        }
+    }
+}

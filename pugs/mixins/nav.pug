@@ -1,0 +1,9 @@
+//- call mixin: +nav(linkList, 2)
+
+mixin nav(items, active)
+	.header__menu.js-header-menu
+		ul.topmenu
+			each item, idx in items
+				li(class='menu-item' + (idx === active ? ' current-menu-item' : ''))
+					a(href="#")= item
+

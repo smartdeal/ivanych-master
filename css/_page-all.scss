@@ -1,0 +1,27 @@
+body {
+    background: white; 
+    position: relative;
+    min-width: 320px;
+    font-family: "Futura New";
+    font-size: 16px;
+    color: #2b3338;
+}
+
+[data-aload] {
+    background-image: none !important;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.admin-bar #wpadminbar {
+    top: -46px;
+    @media (min-width: 601px) {
+        top: 0;
+    }
+    @media (max-width: 991px) {
+        overflow: hidden;
+    }
+}
+

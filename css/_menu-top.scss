@@ -1,0 +1,58 @@
+.header__menu {
+    position: absolute;
+    top: -50px;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.8);
+    left: auto;
+    right: 10px;
+    box-shadow: 0 0 2px grey;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    display: none;
+    @include mn768 {
+        top: -20px;
+    }
+    @include mn992 {
+        position: static;
+        display: block;
+        box-shadow: none;
+        color: white;
+        background: inherit;
+        padding: 0;
+    }
+    &-wrap {
+        @include mn992 {
+            background: $dark;
+        }
+        .container {
+            position: relative;
+        }
+    }
+}
+
+.topmenu {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1;
+    @include mn992 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .menu-item {
+    	padding: 5px 0;
+        @include mn992 {
+            padding: 18px;
+        }
+        &:hover {
+        	color: $dark;
+        	background: $color2;
+        }
+    }
+    a {
+    	text-decoration: none;
+    	&:hover {
+    		text-decoration: none;
+    	}
+    }
+}

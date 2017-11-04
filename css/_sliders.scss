@@ -1,0 +1,20 @@
+.main-slider {
+    text-align: center;
+    &__item {
+        padding: 40px 0;
+        background: url('') center no-repeat;
+    }
+    &__title {
+        font-family: "Bebas";
+        font-size: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    &__desc {
+        font-weight: 300;
+        font-size: 18px;
+        line-height: 1;
+        margin-bottom: 20px;
+    }
+}
