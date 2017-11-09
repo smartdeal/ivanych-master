@@ -28,7 +28,26 @@ $(document).ready(function() {
     	$('.js-header-menu').slideToggle();
     });
 
-    $('.js-main-slider').slick();
+    function slider_front_init() {
+        if ($('.js-main-slider').length) {
+            $('.js-main-slider')
+                    .on('init', function(slick){
+                        var total = $(this).find('.main-slider__item:not(.slick-cloned)').length;
+                        console.log("total", total);
+                        $(this).closest('.main-slider').find('.js-main-slider-total').text(total);
+                    })
+                    .slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        prevArrow: $('.main-slider__arrow-prev'),
+                        nextArrow: $('.main-slider__arrow-next'),
+                    })
+                    .on('afterChange', function(event, slick, currentSlide, nextSlide){
+                        $(this).closest('.main-slider').find('.js-main-slider-current').text(currentSlide+1);
+                    });
+        }
+    }
+    slider_front_init();
 
     // $(".wpcf7").on('wpcf7mailsent', function(event){
     //     var forms = ['517', '193'];

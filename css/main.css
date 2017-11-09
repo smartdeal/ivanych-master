@@ -2819,21 +2819,68 @@ input {
       text-decoration: none; }
 
 .main-slider {
-  text-align: center; }
+  text-align: center;
+  position: relative; }
   .main-slider__item {
-    padding: 40px 0;
     background: url("") center no-repeat; }
+  .main-slider__inside {
+    display: inline-block;
+    padding: 50px 0 40px; }
+    @media (min-width: 1200px) {
+      .main-slider__inside {
+        min-height: 460px; } }
   .main-slider__title {
     font-family: "Bebas";
     font-size: 30px;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 10px; }
+    @media (min-width: 1200px) {
+      .main-slider__title {
+        font-size: 50px;
+        text-align: left; } }
   .main-slider__desc {
     font-weight: 300;
     font-size: 18px;
     line-height: 1;
     margin-bottom: 20px; }
+    @media (min-width: 1200px) {
+      .main-slider__desc {
+        font-size: 20px;
+        text-align: left; } }
+  .main-slider__btn {
+    font-size: 14px;
+    padding: 20px;
+    min-width: 200px; }
+  .main-slider__arrows {
+    color: #808990;
+    font-weight: 700;
+    position: absolute;
+    z-index: 1;
+    top: 10px;
+    left: 0;
+    right: 0; }
+    .main-slider__arrows span {
+      display: inline-block;
+      vertical-align: middle; }
+  .main-slider__arrow {
+    font-size: 1em;
+    width: 40px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px; }
+    .main-slider__arrow:before {
+      content: '';
+      display: inline-block;
+      width: 23px;
+      height: 10px;
+      background: url(../img/icons-bundle.png) no-repeat;
+      background-position: -70px 0;
+      line-height: 1; }
+    .main-slider__arrow-next:before {
+      background-position: -101px 0; }
+    .main-slider__arrow-divider {
+      padding: 0 2px; }
 
 body {
   background: white;

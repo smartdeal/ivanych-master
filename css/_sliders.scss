@@ -1,8 +1,15 @@
 .main-slider {
     text-align: center;
+    position: relative;
     &__item {
-        padding: 40px 0;
         background: url('') center no-repeat;
+    }
+    &__inside {
+        display: inline-block;
+        padding: 50px 0 40px;
+        @include mn1200 {
+            min-height: 460px;
+        }
     }
     &__title {
         font-family: "Bebas";
@@ -10,11 +17,61 @@
         font-weight: 600;
         text-transform: uppercase;
         margin-bottom: 10px;
+        @include mn1200 {
+            font-size: 50px;
+            text-align: left;
+        }
     }
     &__desc {
         font-weight: 300;
         font-size: 18px;
         line-height: 1;
         margin-bottom: 20px;
+        @include mn1200 {
+            font-size: 20px;
+            text-align: left;
+        }
+    }
+    &__btn {
+        font-size: 14px;
+        padding: 20px;
+        min-width: 200px;
+    }
+    &__arrows {
+        color: #808990;
+        font-weight: 700;
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        left: 0;
+        right: 0;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &__arrow {
+        font-size: 1em;
+        width: 40px;
+        height: 30px;
+        text-align: center;
+        line-height: 30px;
+        &:before {
+            content: '';
+            display: inline-block;
+            width: 23px;
+            height: 10px;
+            background: url(../img/icons-bundle.png) no-repeat;
+            background-position: -70px 0;
+            line-height: 1;
+        }
+        &-next {
+            &:before {
+                background-position: -101px 0;
+            }
+        }
+        &-divider {
+            padding: 0 2px;
+        }
     }
 }
