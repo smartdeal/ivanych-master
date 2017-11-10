@@ -89,11 +89,11 @@ $(window).resize(init);
 
 $(window).scroll(function() {
 
-    if (!is_team_about_scrolled && $('.js-team-about').length) {
-        if (window_width >= 1200) {
-            var scroll = $(window).scrollTop();
-        }
-    }
+    // if (!is_team_about_scrolled && $('.js-team-about').length) {
+    //     if (window_width >= 1200) {
+    //         var scroll = $(window).scrollTop();
+    //     }
+    // }
 
 });
 

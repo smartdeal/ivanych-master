@@ -9,6 +9,7 @@
         padding: 50px 0 40px;
         @include mn1200 {
             min-height: 460px;
+            padding-top: 90px;
         }
     }
     &__title {
@@ -45,6 +46,9 @@
         top: 10px;
         left: 0;
         right: 0;
+        @include mn1200 {
+            top: 30px;
+        }
         span {
             display: inline-block;
             vertical-align: middle;

@@ -1,5 +1,5 @@
 body {
-    background: white; 
+    background: white;
     position: relative;
     min-width: 320px;
     font-family: "Futura New";
@@ -25,3 +25,24 @@ a:hover {
     }
 }
 
+.content {
+    &__wrap {
+        position: relative;
+    }
+}
+
+.main-layout {
+    &__sidebar {
+        @include mn1200 {
+            width: 276px;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+    }
+    &__content {
+        @include mn1200 {
+            margin-left: 276px;
+        }
+    }
+}

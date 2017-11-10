@@ -1,0 +1,41 @@
+.b-get-calc {
+    background-color: #0087d8;
+    background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
+    text-align: center;
+    color: white;
+    font-size: 26px;
+    padding: 1em 0;
+    line-height: 1;
+    @include mn992 {
+        font-size: 30px;
+    }
+    @include mn1200 {
+        font-size: 36px;
+    }
+    &__inner {
+        @include mn768 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    }
+    &__caption {
+        font-family: "Bebas";
+    }
+    &__text {
+        font-size: .5em;
+        margin: 1em;
+    }
+    &__btn {
+    	display: inline-block;
+        @include mn992 {
+            width: 200px;
+            padding: 20px 15px;
+            font-size: 14px;
+        }
+    }
+}

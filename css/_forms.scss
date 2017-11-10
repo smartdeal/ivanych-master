@@ -6,19 +6,25 @@ input {
     width: 100%;
 }
 
-.btn {
+@mixin mx-btn {
     display: inline-block;
+    vertical-align: middle;
+    max-width: 100%;
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase;
     border: 0;
     padding: 10px 30px;
     border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+}
+.btn {
+    @include mx-btn;
     background-color: $color1;
     background-image: linear-gradient(to right, #0f6aa7 0%, $color1 100%);
-    box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
     color: white;
     &_c2 {
+        @include mx-btn;
     	background: $color2;
     	color: #2b3338;
     }

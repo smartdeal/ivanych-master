@@ -1,0 +1,43 @@
+.b-grid {
+    margin: 30px 0;
+    &__title {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 1em;
+        text-align: center;
+        @include mn768 {
+            font-size: 30px;
+        }
+        @include mn1200 {
+        	text-align: left;
+        }
+    }
+    &__items {
+        text-align: center;
+        font-size: 0;
+    }
+    &-item {
+        width: 50%;
+        max-width: 175px;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 16px;
+        padding: 10px;
+        margin-bottom: 10px;
+        &__img {
+            background: url(../img/grid-elem.jpg) center no-repeat;
+            background-size: cover;
+            padding-bottom: 105%;
+        }
+        &__caption {
+            font-size: 16px;
+            font-weight: 300;
+            color: #2b3338;margin: 10px 0;
+        }
+        &__btn{
+        	font-size: 12px;
+        	font-weight: 400;
+        }
+    }
+}
