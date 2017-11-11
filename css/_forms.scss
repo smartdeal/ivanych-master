@@ -28,4 +28,8 @@ input {
     	background: $color2;
     	color: #2b3338;
     }
+    &:hover {
+        text-decoration: none;
+        color: white;
+    }
 }

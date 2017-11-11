@@ -10,12 +10,16 @@
             font-size: 30px;
         }
         @include mn1200 {
-        	text-align: left;
+            text-align: left;
         }
     }
     &__items {
         text-align: center;
         font-size: 0;
+        margin: 0 -10px;
+        @include mn1200 {
+        	text-align: left;
+        }
     }
     &-item {
         width: 50%;
@@ -25,6 +29,11 @@
         font-size: 16px;
         padding: 10px;
         margin-bottom: 10px;
+        text-align: center;
+        @include mn1200 {
+            max-width: none;
+            width: 25%;
+        }
         &__img {
             background: url(../img/grid-elem.jpg) center no-repeat;
             background-size: cover;
@@ -33,11 +42,12 @@
         &__caption {
             font-size: 16px;
             font-weight: 300;
-            color: #2b3338;margin: 10px 0;
+            color: #2b3338;
+            margin: 10px 0;
         }
-        &__btn{
-        	font-size: 12px;
-        	font-weight: 400;
+        &__btn {
+            font-size: 12px;
+            font-weight: 400;
         }
     }
 }
