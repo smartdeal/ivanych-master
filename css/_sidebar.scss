@@ -1,3 +1,9 @@
+.sidebar {
+    display: none;
+    @include mn1200 {
+        display: block;
+    }
+}
 .b-widget {
     margin-bottom: 40px;
     &__title {

@@ -31,11 +31,135 @@
         margin: 1em;
     }
     &__btn {
-    	display: inline-block;
+        display: inline-block;
         @include mn992 {
             width: 200px;
             padding: 20px 15px;
             font-size: 14px;
+        }
+    }
+}
+
+.b-partners-logo {
+    margin: 30px 0;
+    &__body {
+        position: relative;
+        padding: 10px 40px;
+    }
+    &__item {
+        height: 70px;
+        text-align: center;
+        &:after {
+            content: '';
+            display: inline-block;
+            vertical-align: middle;
+            width: 0;
+            height: 100%;
+        }
+        img {
+            display: inline-block !important;
+            vertical-align: middle;
+        }
+    }
+    &__arrow-prev,
+    &__arrow-next {
+        width: 16px;
+        height: 31px;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        margin-top: -15px;
+        background: url(../img/icons-bundle.png) center no-repeat;
+        background-position: -21px -18px;
+    }
+    &__arrow-prev {
+        left: 10px;
+        background-position: 0 -18px;
+    }
+    &__arrow-next {}
+}
+
+.b-why-choose {
+    margin: 30px 0;
+    padding: 50px 0;
+    background-color: #f0f3f5;
+    background-image: linear-gradient(to right, rgba(193, 193, 202, 0.25) 0%, rgba(234, 235, 238, 0.25) 100%);
+    text-align: center;
+    &__items {
+        font-size: 0;
+    }
+    &__item {
+        width: 230px;
+        padding: 20px;
+        display: inline-block;
+        vertical-align: top;
+        font-size: 16px;
+    }
+    &__num {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background-color: #ffce47;
+        box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        border-radius: 50%;
+        font-size: 40px;
+        font-weight: 500;
+        text-transform: uppercase;
+        font-family: "Bebas";
+        z-index: 1;
+    }
+    &__caption {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 20px;
+        @include vert-center;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    &__img-wrap {
+        width: 180px;
+        height: 180px;
+        max-width: 100%;
+        margin: 0 auto 20px;
+        background-color: #0087d8;
+        background-image: linear-gradient(135deg, #0f6aa7 0%, #0087d8 100%);
+        border-radius: 50%;
+        position: relative;
+    }
+    &__img {
+        background: url('../img/icons-bundle.png') center no-repeat;
+        @include block-center;
+    }
+    &__item {
+        &_1 .b-why-choose__img {
+            background-position: 0 -53px;
+            width: 84px;
+            height: 95px;
+        }
+        &_2 .b-why-choose__img {
+            background-position: -89px -61px;
+            width: 68px;
+            height: 74px;
+        }
+        &_3 .b-why-choose__img {
+            background-position: -162px -64px;
+            width: 73px;
+            height: 73px;
+        }
+        &_4 .b-why-choose__img {
+            background-position: -240px -66px;
+            width: 74px;
+            height: 70px;
+        }
+        &_5 .b-why-choose__img {
+            background-position: -319px -66px;
+            width: 77px;
+            height: 69px;
         }
     }
 }

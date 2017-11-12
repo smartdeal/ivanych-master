@@ -70,8 +70,7 @@ $m1920-width: 1921px;
 }
 
 @mixin text-fade {
-    position: relative;
-    // height: 3.6em; /* exactly three lines */
+    position: relative; // height: 3.6em; /* exactly three lines */
     &:after {
         content: "";
         text-align: right;
@@ -89,29 +88,40 @@ $m1920-width: 1921px;
 /// @param  {Color}   $color  - Stroke color
 /// @return {List}            - text-shadow list
 @function stroke($stroke, $color) {
-  $shadow: ();
-  $from: $stroke*-1;
-  @for $i from $from through $stroke {
-   @for $j from $from through $stroke {
-      $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+    $shadow: ();
+    $from: $stroke*-1;
+    @for $i from $from through $stroke {
+        @for $j from $from through $stroke {
+            $shadow: append($shadow, $i*1px $j*1px 0 $color, comma);
+        }
     }
-  }
-  @return $shadow;
+    @return $shadow;
 }
+
 /// Stroke font-character
 /// @param  {Integer} $stroke - Stroke width
 /// @param  {Color}   $color  - Stroke color
 /// @return {Style}           - text-shadow
 @mixin stroke($stroke, $color) {
-  text-shadow: stroke($stroke, $color);
+    text-shadow: stroke($stroke, $color);
 }
 
 @mixin placeholder {
-    input                       {@content}
-    ::-webkit-input-placeholder {@content}
-    :-moz-placeholder           {@content}
-    ::-moz-placeholder          {@content}
-    :-ms-input-placeholder      {@content}  
+    input {
+        @content
+    }
+     ::-webkit-input-placeholder {
+        @content
+    }
+     :-moz-placeholder {
+        @content
+    }
+     ::-moz-placeholder {
+        @content
+    }
+     :-ms-input-placeholder {
+        @content
+    }
 }
 
 @mixin cf {
@@ -123,5 +133,23 @@ $m1920-width: 1921px;
     }
     &:after {
         clear: both;
-    }    
+    }
+}
+
+@mixin vert-center {
+    text-align: center;
+    &:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 100%;
+    }
+}
+
+@mixin block-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

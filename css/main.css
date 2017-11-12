@@ -2937,6 +2937,115 @@ input {
         padding: 20px 15px;
         font-size: 14px; } }
 
+.b-partners-logo {
+  margin: 30px 0; }
+  .b-partners-logo__body {
+    position: relative;
+    padding: 10px 40px; }
+  .b-partners-logo__item {
+    height: 70px;
+    text-align: center; }
+    .b-partners-logo__item:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 100%; }
+    .b-partners-logo__item img {
+      display: inline-block !important;
+      vertical-align: middle; }
+  .b-partners-logo__arrow-prev, .b-partners-logo__arrow-next {
+    width: 16px;
+    height: 31px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -15px;
+    background: url(../img/icons-bundle.png) center no-repeat;
+    background-position: -21px -18px; }
+  .b-partners-logo__arrow-prev {
+    left: 10px;
+    background-position: 0 -18px; }
+
+.b-why-choose {
+  margin: 30px 0;
+  padding: 50px 0;
+  background-color: #f0f3f5;
+  background-image: linear-gradient(to right, rgba(193, 193, 202, 0.25) 0%, rgba(234, 235, 238, 0.25) 100%);
+  text-align: center; }
+  .b-why-choose__items {
+    font-size: 0; }
+  .b-why-choose__item {
+    width: 230px;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 16px; }
+  .b-why-choose__num {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background-color: #ffce47;
+    box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 40px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-family: "Bebas";
+    z-index: 1; }
+  .b-why-choose__caption {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-align: center; }
+    .b-why-choose__caption:after {
+      content: '';
+      display: inline-block;
+      vertical-align: middle;
+      width: 0;
+      height: 100%; }
+    .b-why-choose__caption span {
+      display: inline-block;
+      vertical-align: middle; }
+  .b-why-choose__img-wrap {
+    width: 180px;
+    height: 180px;
+    max-width: 100%;
+    margin: 0 auto 20px;
+    background-color: #0087d8;
+    background-image: linear-gradient(135deg, #0f6aa7 0%, #0087d8 100%);
+    border-radius: 50%;
+    position: relative; }
+  .b-why-choose__img {
+    background: url("../img/icons-bundle.png") center no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+  .b-why-choose__item_1 .b-why-choose__img {
+    background-position: 0 -53px;
+    width: 84px;
+    height: 95px; }
+  .b-why-choose__item_2 .b-why-choose__img {
+    background-position: -89px -61px;
+    width: 68px;
+    height: 74px; }
+  .b-why-choose__item_3 .b-why-choose__img {
+    background-position: -162px -64px;
+    width: 73px;
+    height: 73px; }
+  .b-why-choose__item_4 .b-why-choose__img {
+    background-position: -240px -66px;
+    width: 74px;
+    height: 70px; }
+  .b-why-choose__item_5 .b-why-choose__img {
+    background-position: -319px -66px;
+    width: 77px;
+    height: 69px; }
+
 .b-grid {
   margin: 30px 0; }
   .b-grid__title {
@@ -2972,7 +3081,7 @@ input {
         max-width: none;
         width: 25%; } }
     .b-grid-item__img {
-      background: url(../img/grid-elem.jpg) center no-repeat;
+      background: url(../img/tmp/grid-elem.jpg) center no-repeat;
       background-size: cover;
       padding-bottom: 105%; }
     .b-grid-item__caption {
@@ -2983,6 +3092,24 @@ input {
     .b-grid-item__btn {
       font-size: 12px;
       font-weight: 400; }
+
+.b-content {
+  margin: 30px 0;
+  font-size: 16px;
+  font-weight: 300; }
+  .b-content h1, .b-content h2, .b-content h3, .b-content h4, .b-content h5, .b-content h6 {
+    font-weight: 700; }
+  .b-content h3 {
+    font-size: 20px; }
+  .b-content p {
+    font-size: inherit;
+    font-weight: inherit; }
+
+.sidebar {
+  display: none; }
+  @media (min-width: 1200px) {
+    .sidebar {
+      display: block; } }
 
 .b-widget {
   margin-bottom: 40px; }
@@ -3046,6 +3173,12 @@ input {
     padding: 15px 10px;
     min-width: 190px; }
 
+.footer {
+  height: 500px; }
+
+.footer-news {
+  margin: 30px 0; }
+
 body {
   background: white;
   position: relative;
@@ -3081,5 +3214,13 @@ a:hover {
 @media (min-width: 1200px) {
   .main-layout__content {
     margin-left: 310px; } }
+
+.block-title {
+  font-family: "Bebas";
+  font-size: 50px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 30px; }
 
 /*# sourceMappingURL=main.css.map */

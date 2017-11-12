@@ -5,13 +5,21 @@ block PAGE_TITLE
 
 block CONTENT
 	.main-layout
-		include ../components/slider-front.pug
-		include ../components/block-get-calc.pug
+		include ../components/content/slider-front
+		include ../components/content/block-get-calc
 		.content__inner
 			.container
 				.content__wrap
 					.main-layout__sidebar
-						include ../components/content/sidebar.pug
+						include ../components/content/sidebar
 					.main-layout__content
-						include ../components/content/block-grid-products.pug
-						include ../components/content/block-grid-services.pug
+						include ../components/content/block-grid-products
+						include ../components/content/block-grid-services
+						include ../components/content/block-partners-logo
+						.b-content
+							h3 Нанесение фирменной символики - логотипов, слоганов, надписей, изображений быстро, качественно и недорого!
+							p Наша компания работает на рынке уже не первый год, доказав на практике, что мы УМЕЕМ эффективно продвигать «Ваше имя», бренд для активного завоевания новых ниш и сегментов рынка Вашего бизнеса. Крупный и яркий логотип на одежде станет визитной карточкой, возможностью громко заявить о себе. Современный бизнес примечателен тем, что позволяет раскрыть в себе талант творца, созидателя!
+							p Мало просто работать хорошо, нужно также уметь привлекать клиентов, партнеров, закреплять бренд на рынке.
+							p Мы уже не первый год предлагаем актуальные услуги, которые помогут Вам. Все, что может превратить Вашу рекламу в высокоэффективный инструмент продаж – ЕСТЬ У НАС. Работать с нами могут как розничные, так и оптовые заказчики. Мы привыкли выполнять работу «на отлично» вне зависимости от объемов!
+							p Если мы беремся за выполнение заказа, то вы можете не волноваться о том, что он будет выполнен в соответствии с Вашими требованиями!
+		include ../components/content/block-why-choose-company

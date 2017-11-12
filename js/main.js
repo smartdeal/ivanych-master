@@ -20,6 +20,8 @@ $(document).ready(function() {
         mask: "+7(999) 999-99-99"
     });
 
+    $('.js-why-choose-caption').matchHeight();
+
     var location_url = window.location.href;
     $('input[name="url"]').val(location_url);
 
@@ -48,6 +50,66 @@ $(document).ready(function() {
         }
     }
     slider_front_init();
+
+    function slider_partners_logo_init() {
+        if ($('.js-partners-logo').length) {
+            $('.js-partners-logo')
+                    .slick({
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        prevArrow: $('.b-partners-logo__arrow-prev'),
+                        nextArrow: $('.b-partners-logo__arrow-next'),
+                        responsive: [
+                            {
+                              breakpoint: 600,
+                              settings: {
+                                slidesToShow: 2,
+                              }
+                            }
+                          ]
+                    });
+        }
+    }
+    slider_partners_logo_init();
+
+    function slider_why_choose_init() {
+        if ($('.js-why-choose').length) {
+            $('.js-why-choose')
+                    .slick({
+                        slidesToShow: 5,
+                        slidesToScroll: 1,
+                        arrows: false,
+                        responsive: [
+                            {
+                              breakpoint: 1200,
+                              settings: {
+                                slidesToShow: 4,
+                              }
+                            },
+                            {
+                              breakpoint: 992,
+                              settings: {
+                                slidesToShow: 3,
+                              }
+                            },
+                            {
+                              breakpoint: 700,
+                              settings: {
+                                slidesToShow: 2,
+                              }
+                            },
+                            {
+                              breakpoint: 500,
+                              settings: {
+                                slidesToShow: 1,
+                              }
+                            }
+                          ]
+                    });
+        }
+    }
+    slider_why_choose_init();
 
     // $(".wpcf7").on('wpcf7mailsent', function(event){
     //     var forms = ['517', '193'];

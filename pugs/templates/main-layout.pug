@@ -11,6 +11,7 @@ head
 	link(type="text/css", rel="stylesheet", href="js/slick/slick.css")
 	link(type="text/css", rel="stylesheet", href="css/main.css")
 	script(type="text/javascript" src="js/jquery.js")
+	script(type="text/javascript" src="js/plugins.js")
 	script(type="text/javascript" src="js/jquery.inputmask.bundle.min.js")
 	script(type="text/javascript" src="js/magnific-popup/jquery.magnific-popup.min.js")
 	script(type="text/javascript" src="js/slick/slick.min.js")
@@ -20,6 +21,8 @@ head
 		title DEFAULT VALUE
 
 body
-	include ../components/header/header
+	include ../components/content/header
 
 	block CONTENT
+
+	include ../components/content/footer
