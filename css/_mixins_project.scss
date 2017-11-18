@@ -7,7 +7,6 @@
 
 @mixin icons-bundle {
     position: relative;
-    padding-left: 20px;
     &:after {
         display: block;
         position: absolute;
@@ -25,8 +24,8 @@
     @include icons-bundle;
     &:after {
         width: 20px;
-    height: 10px;
-    background-position: 3px 0px;
+        height: 10px;
+        background-position: 3px 0px;
     }
 }
 
@@ -44,6 +43,15 @@
     &:after {
         width: 20px;
         height: 16px;
-        background-position: -45px 0px;
+        background-position: -21px 0px;
+    }
+}
+
+@mixin icon-bundle-tel-white-25-25 {
+    @include icons-bundle;
+    &:after {
+        width: 25px;
+        height: 25px;
+        background-position: -68px 0px;
     }
 }

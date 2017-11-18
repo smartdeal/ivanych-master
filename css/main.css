@@ -2468,26 +2468,18 @@ input {
 input:focus {
   outline: none !important; }
 
-input {
-  color: inherit;
-  font-weight: 400; }
-
 ::-webkit-input-placeholder {
   color: inherit;
   font-weight: 400; }
-
 :-moz-placeholder {
   color: inherit;
   font-weight: 400; }
-
 ::-moz-placeholder {
   color: inherit;
   font-weight: 400; }
-
 :-ms-input-placeholder {
   color: inherit;
   font-weight: 400; }
-
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -2576,6 +2568,53 @@ input {
   src: url("../fonts/BebasNeue Bold.otf") format("truetype");
   font-style: normal;
   font-weight: 700; }
+body {
+  background: white;
+  position: relative;
+  min-width: 320px;
+  font-family: "Futura New";
+  font-size: 16px;
+  color: #2b3338; }
+
+[data-aload] {
+  background-image: none !important; }
+
+a:hover {
+  text-decoration: underline; }
+
+.admin-bar #wpadminbar {
+  top: -46px; }
+  @media (min-width: 601px) {
+    .admin-bar #wpadminbar {
+      top: 0; } }
+  @media (max-width: 991px) {
+    .admin-bar #wpadminbar {
+      overflow: hidden; } }
+
+.content__wrap {
+  position: relative; }
+
+@media (min-width: 1200px) {
+  .main-layout__sidebar {
+    width: 276px;
+    position: absolute;
+    left: 0;
+    right: 0; } }
+@media (min-width: 1200px) {
+  .main-layout__content {
+    margin-left: 310px; } }
+
+.block-title {
+  font-family: "Bebas";
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: .8em; }
+  @media (min-width: 768px) {
+    .block-title {
+      font-size: 50px; } }
+
 input {
   background: #f0f3f5;
   border-radius: 50px;
@@ -2651,7 +2690,23 @@ input {
         width: 230px;
         flex-shrink: 0; } }
   .header__logo-txt {
-    display: none; }
+    display: none;
+    padding-left: 20px;
+    position: relative; }
+    .header__logo-txt:after {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: '';
+      background: url("../img/icons-bundle.png") center no-repeat;
+      background-position: 0px 0px;
+      top: 50%;
+      transform: translateY(-50%); }
+    .header__logo-txt:after {
+      width: 20px;
+      height: 16px;
+      background-position: -21px 0px; }
     @media (min-width: 768px) {
       .header__logo-txt {
         display: block; } }
@@ -2714,10 +2769,10 @@ input {
   .header__email, .header__tel {
     display: inline-block;
     margin: 0 5px;
-    line-height: 1.2; }
+    line-height: 1.2;
+    padding-left: 20px; }
   .header__tel {
     position: relative;
-    padding-left: 20px;
     font-size: 18px;
     font-weight: 700; }
     .header__tel:after {
@@ -2744,7 +2799,6 @@ input {
         margin-top: 5px; } }
   .header__email {
     position: relative;
-    padding-left: 20px;
     font-size: 19px;
     font-weight: 300;
     text-decoration: underline;
@@ -3126,12 +3180,14 @@ input {
 .b-news {
   text-align: center; }
   .b-news__item {
-    max-height: 380px;
-    overflow: hidden;
-    margin-bottom: 20px;
-    position: relative;
     text-align: left; }
-    .b-news__item:after {
+  .b-news__body {
+    position: relative;
+    max-height: 160px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    margin-bottom: 20px; }
+    .b-news__body:after {
       content: '';
       position: absolute;
       left: 0;
@@ -3174,53 +3230,144 @@ input {
     min-width: 190px; }
 
 .footer {
-  height: 500px; }
+  margin-bottom: 500px; }
 
 .footer-news {
   margin: 30px 0; }
 
-body {
-  background: white;
-  position: relative;
-  min-width: 320px;
-  font-family: "Futura New";
-  font-size: 16px;
-  color: #2b3338; }
+.b-news_footer {
+  font-size: 0;
+  margin: 0 -10px; }
+  .b-news_footer .b-news__item {
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0 10px; }
+    @media (min-width: 768px) {
+      .b-news_footer .b-news__item {
+        width: 33.33%;
+        max-width: none;
+        display: inline-block;
+        vertical-align: top; } }
+  .b-news_footer .b-news__title, .b-news_footer .b-news__txt {
+    text-align: left; }
+  .b-news_footer .b-news__img {
+    height: 0;
+    padding-bottom: 70%;
+    border-radius: 10px; }
 
-[data-aload] {
-  background-image: none !important; }
-
-a:hover {
-  text-decoration: underline; }
-
-.admin-bar #wpadminbar {
-  top: -46px; }
-  @media (min-width: 601px) {
-    .admin-bar #wpadminbar {
-      top: 0; } }
-  @media (max-width: 991px) {
-    .admin-bar #wpadminbar {
-      overflow: hidden; } }
-
-.content__wrap {
-  position: relative; }
+.footer-form {
+  padding: 50px 0;
+  background: #007bc3 url(../img/bg-form-bottom.jpg) right no-repeat;
+  background-size: cover; }
+  @media (min-width: 1200px) {
+    .footer-form {
+      background-position: center;
+      padding: 130px 0 110px; } }
 
 @media (min-width: 1200px) {
-  .main-layout__sidebar {
-    width: 276px;
+  .b-form_footer {
+    padding-left: 30%;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    align-items: center; } }
+@media (min-width: 1200px) {
+  .b-form_footer .b-form__form {
+    flex: 1 0 440px; } }
+.b-form_footer .b-form__title {
+  text-align: center;
+  font-family: "Bebas";
+  color: white;
+  margin-bottom: .5em;
+  font-size: 42px; }
+  @media (min-width: 1200px) {
+    .b-form_footer .b-form__title {
+      text-align: left;
+      font-size: 53px;
+      margin-bottom: 20px; } }
+.b-form_footer .b-form__body {
+  position: relative;
+  max-width: 330px;
+  margin: 0 auto; }
+  @media (min-width: 768px) {
+    .b-form_footer .b-form__body {
+      max-width: 440px; } }
+.b-form_footer .b-form__input {
+  font-size: 13px;
+  padding: 15px 160px 15px 20px; }
+  .b-form_footer .b-form__input::-webkit-input-placeholder {
+    color: lightgrey;
+    text-transform: uppercase; }
+  .b-form_footer .b-form__input:-moz-placeholder {
+    color: lightgrey;
+    text-transform: uppercase; }
+  .b-form_footer .b-form__input::-moz-placeholder {
+    color: lightgrey;
+    text-transform: uppercase; }
+  .b-form_footer .b-form__input:-ms-input-placeholder {
+    color: lightgrey;
+    text-transform: uppercase; }
+  @media (min-width: 768px) {
+    .b-form_footer .b-form__input {
+      padding: 20px 200px 20px 30px; } }
+.b-form_footer .b-form__btn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 10px;
+  line-height: 27px; }
+  @media (min-width: 768px) {
+    .b-form_footer .b-form__btn {
+      font-size: 14px;
+      line-height: 36px;
+      padding: 10px 35px; } }
+.b-form_footer .b-form__txt {
+  color: white;
+  margin-top: 20px;
+  padding: 0 40px;
+  font-size: 20px;
+  line-height: 1;
+  text-align: center; }
+  @media (min-width: 1200px) {
+    .b-form_footer .b-form__txt {
+      text-align: left;
+      margin-left: 30px;
+      margin-top: 0;
+      line-height: 1.2; } }
+.b-form_footer .b-form__tel {
+  display: block;
+  font-weight: 500;
+  font-size: 36px;
+  font-family: "Bebas";
+  line-height: 1.2;
+  margin: 0 auto;
+  max-width: 220px;
+  white-space: nowrap;
+  position: relative; }
+  .b-form_footer .b-form__tel:after {
+    display: block;
     position: absolute;
     left: 0;
-    right: 0; } }
-@media (min-width: 1200px) {
-  .main-layout__content {
-    margin-left: 310px; } }
-
-.block-title {
-  font-family: "Bebas";
-  font-size: 50px;
-  font-weight: 500;
-  text-transform: uppercase;
-  text-align: center;
-  margin-bottom: 30px; }
+    top: 0;
+    content: '';
+    background: url("../img/icons-bundle.png") center no-repeat;
+    background-position: 0px 0px;
+    top: 50%;
+    transform: translateY(-50%); }
+  .b-form_footer .b-form__tel:after {
+    width: 25px;
+    height: 25px;
+    background-position: -68px 0px; }
+  @media (min-width: 1200px) {
+    .b-form_footer .b-form__tel {
+      font-size: 42px;
+      margin-left: 0;
+      line-height: 1.4; } }
+  .b-form_footer .b-form__tel:after {
+    left: -35px; }
 
 /*# sourceMappingURL=main.css.map */

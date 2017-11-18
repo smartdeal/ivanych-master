@@ -4,6 +4,7 @@
         display: block;
     }
 }
+
 .b-widget {
     margin-bottom: 40px;
     &__title {
@@ -24,11 +25,14 @@
 .b-news {
     text-align: center;
     &__item {
-        max-height: 380px;
-        overflow: hidden;
-        margin-bottom: 20px;
-        position: relative;
         text-align: left;
+    }
+    &__body {
+        position: relative;
+        max-height: 160px;
+        overflow: hidden;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
         &:after {
             content: '';
             position: absolute;

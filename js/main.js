@@ -4,18 +4,34 @@ function include(scriptUrl) {
     document.write('<script src="'+dir_url + scriptUrl + '"></script>');
 }
 
-// Lazy load
-function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
+$.loadScript = function (url, callback) {
+    $.ajax({
+    url: url,
+    dataType: 'script',
+    success: callback,
+    async: true
+    });
+}
+//if (typeof someObject == 'undefined') $.loadScript('url_to_someScript.js', function(){
+    //Stuff to do after someScript has loaded
+//});
+
+var window_width;
+var window_height;
 
 function init() {
     window_width = $(window).width();
     window_height = $(window).height();
-    document_height = $(document).height();
 }
 
 $(document).ready(function() {
     init();
     
+    slider_front_init();
+    slider_partners_logo_init();
+    slider_why_choose_init();
+    slider_footer_news_init();
+
     $('input[type=tel]').inputmask({
         mask: "+7(999) 999-99-99"
     });
@@ -26,90 +42,10 @@ $(document).ready(function() {
     $('input[name="url"]').val(location_url);
 
     $('.js-mmenu-btn').click(function(event) {
-    	event.preventDefault();
-    	$('.js-header-menu').slideToggle();
+        event.preventDefault();
+        $('.js-header-menu').slideToggle();
     });
 
-    function slider_front_init() {
-        if ($('.js-main-slider').length) {
-            $('.js-main-slider')
-                    .on('init', function(slick){
-                        var total = $(this).find('.main-slider__item:not(.slick-cloned)').length;
-                        console.log("total", total);
-                        $(this).closest('.main-slider').find('.js-main-slider-total').text(total);
-                    })
-                    .slick({
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        prevArrow: $('.main-slider__arrow-prev'),
-                        nextArrow: $('.main-slider__arrow-next'),
-                    })
-                    .on('afterChange', function(event, slick, currentSlide, nextSlide){
-                        $(this).closest('.main-slider').find('.js-main-slider-current').text(currentSlide+1);
-                    });
-        }
-    }
-    slider_front_init();
-
-    function slider_partners_logo_init() {
-        if ($('.js-partners-logo').length) {
-            $('.js-partners-logo')
-                    .slick({
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        prevArrow: $('.b-partners-logo__arrow-prev'),
-                        nextArrow: $('.b-partners-logo__arrow-next'),
-                        responsive: [
-                            {
-                              breakpoint: 600,
-                              settings: {
-                                slidesToShow: 2,
-                              }
-                            }
-                          ]
-                    });
-        }
-    }
-    slider_partners_logo_init();
-
-    function slider_why_choose_init() {
-        if ($('.js-why-choose').length) {
-            $('.js-why-choose')
-                    .slick({
-                        slidesToShow: 5,
-                        slidesToScroll: 1,
-                        arrows: false,
-                        responsive: [
-                            {
-                              breakpoint: 1200,
-                              settings: {
-                                slidesToShow: 4,
-                              }
-                            },
-                            {
-                              breakpoint: 992,
-                              settings: {
-                                slidesToShow: 3,
-                              }
-                            },
-                            {
-                              breakpoint: 700,
-                              settings: {
-                                slidesToShow: 2,
-                              }
-                            },
-                            {
-                              breakpoint: 500,
-                              settings: {
-                                slidesToShow: 1,
-                              }
-                            }
-                          ]
-                    });
-        }
-    }
-    slider_why_choose_init();
 
     // $(".wpcf7").on('wpcf7mailsent', function(event){
     //     var forms = ['517', '193'];
@@ -197,6 +133,108 @@ $(window).scroll(function() {
     //         }
     //     }
     // }
+
+
+// Lazy load
+function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
+
+function slider_front_init() {
+    if ($('.js-main-slider').length) {
+        $('.js-main-slider')
+                .on('init', function(slick){
+                    var total = $(this).find('.main-slider__item:not(.slick-cloned)').length;
+                    $(this).closest('.main-slider').find('.js-main-slider-total').text(total);
+                })
+                .slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    prevArrow: $('.main-slider__arrow-prev'),
+                    nextArrow: $('.main-slider__arrow-next'),
+                })
+                .on('afterChange', function(event, slick, currentSlide, nextSlide){
+                    $(this).closest('.main-slider').find('.js-main-slider-current').text(currentSlide+1);
+                });
+    }
+}
+
+function slider_partners_logo_init() {
+    if ($('.js-partners-logo').length) {
+        $('.js-partners-logo')
+                .slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    prevArrow: $('.b-partners-logo__arrow-prev'),
+                    nextArrow: $('.b-partners-logo__arrow-next'),
+                    responsive: [
+                        {
+                          breakpoint: 600,
+                          settings: {
+                            slidesToShow: 2,
+                          }
+                        }
+                      ]
+                });
+    }
+}
+
+function slider_footer_news_init() {
+    if ($('.js-news-footer').length) {
+        $('.js-news-footer')
+            .slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                infinite: true,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                  ]
+            });
+    }
+}
+
+function slider_why_choose_init() {
+    if ($('.js-why-choose').length) {
+        $('.js-why-choose')
+                .slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    arrows: false,
+                    responsive: [
+                        {
+                          breakpoint: 1200,
+                          settings: {
+                            slidesToShow: 4,
+                          }
+                        },
+                        {
+                          breakpoint: 992,
+                          settings: {
+                            slidesToShow: 3,
+                          }
+                        },
+                        {
+                          breakpoint: 700,
+                          settings: {
+                            slidesToShow: 2,
+                          }
+                        },
+                        {
+                          breakpoint: 500,
+                          settings: {
+                            slidesToShow: 1,
+                          }
+                        }
+                      ]
+                });
+    }
+}
+
 
 });
 

@@ -39,6 +39,8 @@
     }
     &__logo-txt {
         display: none;
+        padding-left: 20px;
+        @include icon-bundle-wallet;
         @include mn768 {
             display: block;
         }
@@ -117,6 +119,7 @@
         display: inline-block;
         margin: 0 5px;
         line-height: 1.2;
+        padding-left: 20px;
     }
     &__tel {
         @include icon-bundle-tel;
