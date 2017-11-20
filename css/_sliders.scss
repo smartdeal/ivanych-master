@@ -3,6 +3,7 @@
     position: relative;
     &__item {
         background: url('') center no-repeat;
+        background-size: cover;
     }
     &__inside {
         display: inline-block;
@@ -60,22 +61,40 @@
         height: 30px;
         text-align: center;
         line-height: 30px;
+        cursor: pointer;
         &:before {
             content: '';
             display: inline-block;
             width: 23px;
             height: 10px;
             background: url(../img/icons-bundle.png) no-repeat;
-            background-position: -70px 0;
+            background-position: -44px -24px;
             line-height: 1;
+            opacity: .6;
         }
         &-next {
             &:before {
-                background-position: -101px 0;
+                background-position: -44px -36px;
             }
         }
         &-divider {
             padding: 0 2px;
         }
     }
+}
+
+.slider__item:not(:first-child) {
+    display: none;
+}
+
+.slick-initialized .slider__item {
+    display: block;
+}
+.js-slick{
+     opacity:0;  
+     transition: opacity 1s;
+}
+
+.js-slick.slick-initialized{
+    opacity:1;
 }

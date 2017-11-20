@@ -1,21 +1,5 @@
 jQuery(function($) { 
 
-function include(scriptUrl) {
-    document.write('<script src="'+dir_url + scriptUrl + '"></script>');
-}
-
-$.loadScript = function (url, callback) {
-    $.ajax({
-    url: url,
-    dataType: 'script',
-    success: callback,
-    async: true
-    });
-}
-//if (typeof someObject == 'undefined') $.loadScript('url_to_someScript.js', function(){
-    //Stuff to do after someScript has loaded
-//});
-
 var window_width;
 var window_height;
 
@@ -27,10 +11,15 @@ function init() {
 $(document).ready(function() {
     init();
     
-    slider_front_init();
-    slider_partners_logo_init();
-    slider_why_choose_init();
-    slider_footer_news_init();
+    if ($('.js-slick').length){
+        loadCSS(theme_url+'/js/slick/slick.css');
+        $.loadScript(theme_url+'/js/slick/slick.min.js', function(){
+            slider_front_init();
+            slider_partners_logo_init();
+            slider_why_choose_init();
+            slider_footer_news_init();
+        });        
+    }
 
     $('input[type=tel]').inputmask({
         mask: "+7(999) 999-99-99"
@@ -233,6 +222,32 @@ function slider_why_choose_init() {
                       ]
                 });
     }
+}
+
+
+function include(scriptUrl) {
+    document.write('<script src="'+dir_url + scriptUrl + '"></script>');
+}
+
+$.loadScript = function (url, callback) {
+    $.ajax({
+    url: url,
+    dataType: 'script',
+    success: callback,
+    async: true
+    });
+}
+
+//if (typeof someObject == 'undefined') $.loadScript('url_to_someScript.js', function(){
+    //Stuff to do after someScript has loaded
+//});
+
+function loadCSS(url){
+    $("<link/>", {
+       rel: "stylesheet",
+       type: "text/css",
+       href: url
+    }).appendTo("head");    
 }
 
 
