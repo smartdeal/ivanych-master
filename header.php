@@ -80,6 +80,11 @@
     </div>
 </div>
 <div class="main-layout">
-
-
-
+<?php if (is_front_page()) { get_template_part( 'inc/inc-slider-main' ); } ?>
+<?php get_template_part( 'inc/inc-get-calc' ); ?>
+<?php if ( !is_front_page() && function_exists('yoast_breadcrumb') ) { yoast_breadcrumb('<div id="breadcrumbs"><div class="container">','</div></div>'); } ?>
+<div class="content__inner">
+    <div class="container">
+        <div class="content__wrap">
+            <?php get_sidebar(); ?>
+            <div class="main-layout__content">

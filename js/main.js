@@ -10,6 +10,7 @@ function init() {
 
 $(document).ready(function() {
     init();
+    aload();
     
     if ($('.js-slick').length){
         loadCSS(theme_url+'/js/slick/slick.css');

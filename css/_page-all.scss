@@ -26,8 +26,18 @@ a:hover {
 }
 
 .content {
+    &__inner {
+        margin-top: 30px;
+    }
     &__wrap {
-        position: relative;
+        @include cf;
+        margin-bottom: 50px;
+    }
+    &__title {
+        color: #2b3338;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 40px;
     }
 }
 
@@ -35,14 +45,15 @@ a:hover {
     &__sidebar {
         @include mn1200 {
             width: 276px;
-            position: absolute;
-            left: 0;
-            right: 0;
+            float: left;
         }
     }
     &__content {
         @include mn1200 {
             margin-left: 310px;
+        }
+        >.b-grid {
+            margin-top: 0;
         }
     }
 }
@@ -56,5 +67,41 @@ a:hover {
     margin-bottom: .8em;
     @include mn768 {
         font-size: 50px;
+    }
+}
+
+.pagi {
+    .page-numbers {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 14px;
+        line-height: .8;
+        padding: 6px 8px;
+    }
+    .current {
+        background: $color1;
+        color: white;
+        border-radius: 50%;
+        box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+    }
+    .next {
+        @include arrow-next;
+    }
+    .prev {
+        @include arrow-prev;
+    }
+}
+
+.content__single {
+    .content__title {
+        margin-bottom: 20px;
+    }
+    .content__body {
+        overflow: hidden;
+    }
+    .content__img {
+        float: left;
+        margin-right: 1em;
+        margin-bottom: 1em;
     }
 }

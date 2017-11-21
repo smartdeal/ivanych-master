@@ -62,20 +62,9 @@
         text-align: center;
         line-height: 30px;
         cursor: pointer;
-        &:before {
-            content: '';
-            display: inline-block;
-            width: 23px;
-            height: 10px;
-            background: url(../img/icons-bundle.png) no-repeat;
-            background-position: -44px -24px;
-            line-height: 1;
-            opacity: .6;
-        }
+        @include arrow-prev;
         &-next {
-            &:before {
-                background-position: -44px -36px;
-            }
+            @include arrow-next;
         }
         &-divider {
             padding: 0 2px;
@@ -90,11 +79,12 @@
 .slick-initialized .slider__item {
     display: block;
 }
-.js-slick{
-     opacity:0;  
-     transition: opacity 1s;
+
+.js-slick {
+    opacity: 0;
+    transition: opacity 1s;
 }
 
-.js-slick.slick-initialized{
-    opacity:1;
+.js-slick.slick-initialized {
+    opacity: 1;
 }

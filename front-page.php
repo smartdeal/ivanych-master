@@ -1,15 +1,15 @@
 <?php get_header(); ?>
 
-<?php get_template_part( 'inc/inc-slider-main' ); ?>
-<?php get_template_part( 'inc/inc-get-calc' ); ?>
-
-<div class="content__inner">
-	<div class="container">
-		<div class="content__wrap">
-			<?php get_sidebar(); ?>
-			<div class="main-layout__content">
+                <?php if (have_posts()) { 
+                    while (have_posts()) { the_post();
+                        $post_title = get_field('page_title');
+                        if (!$post_title) $post_title = get_the_title();
+                        $post_content = get_the_content();
+                    ?>			
 			    <div class="b-grid b-grid_products">
-			        <div class="b-grid__title">Печать на одежде, нанесение логотипа и фирменной символики</div>
+			    	<?php if ($post_title): ?>
+				        <div class="b-grid__title"><?php echo $post_title; ?></div>
+			    	<?php endif; ?>
 			        <div class="b-grid__body">
 			            <div class="b-grid__items">
 			                <div class="b-grid-item">
@@ -192,19 +192,9 @@
 			            <div class="b-partners-logo__arrow-next"></div>
 			        </div>
 			    </div>
-			    <div class="b-content">
-			        <h3>Нанесение фирменной символики - логотипов, слоганов, надписей, изображений быстро, качественно и недорого!</h3>
-			        <p>Наша компания работает на рынке уже не первый год, доказав на практике, что мы УМЕЕМ эффективно продвигать «Ваше имя», бренд для активного завоевания новых ниш и сегментов рынка Вашего бизнеса. Крупный и яркий логотип на одежде станет визитной карточкой, возможностью громко заявить о себе. Современный бизнес примечателен тем, что позволяет раскрыть в себе талант творца, созидателя!</p>
-			        <p>Мало просто работать хорошо, нужно также уметь привлекать клиентов, партнеров, закреплять бренд на рынке.</p>
-			        <p>Мы уже не первый год предлагаем актуальные услуги, которые помогут Вам. Все, что может превратить Вашу рекламу в высокоэффективный инструмент продаж – ЕСТЬ У НАС. Работать с нами могут как розничные, так и оптовые заказчики. Мы привыкли выполнять работу «на отлично» вне зависимости от объемов!</p>
-			        <p>Если мы беремся за выполнение заказа, то вы можете не волноваться о том, что он будет выполнен в соответствии с Вашими требованиями!</p>
-			    </div>
-			</div>
-		</div>
-	</div>
-</div>
-
-<?php get_template_part( 'inc/inc-why-we' ); ?>
+			    <?php if ($post_content): ?>
+				    <div class="b-content"><?php echo $post_content; ?></div>
+			    <?php endif; ?>
+			<?php }} ?>
 
 <?php get_footer(); ?>
-

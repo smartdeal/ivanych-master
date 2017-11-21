@@ -27,7 +27,11 @@ add_filter('get_the_archive_title', function( $title ){
 /* ********************************************* */
 // Adding a rich text editor to Excerpt
 
-add_action( 'add_meta_boxes', array ( 'T5_Richtext_Excerpt', 'switch_boxes' ) );
+function wp_64058_remove_excerpt_field() {
+    remove_meta_box( 'postexcerpt' , '' , 'normal' ); 
+}
+add_action( 'admin_menu' , 'wp_64058_remove_excerpt_field' );
+// add_action( 'add_meta_boxes', array ( 'T5_Richtext_Excerpt', 'switch_boxes' ) );
 
 /**
  * Replaces the default excerpt editor with TinyMCE.

@@ -80,7 +80,7 @@
         }
         @include mn992 {
             flex-shrink: 2;
-                max-width: 500px;
+            max-width: 500px;
         }
     }
     &__search {
@@ -166,5 +166,27 @@
         &+span {
             margin-top: 4px;
         }
+    }
+}
+
+#breadcrumbs {
+    color: #0878bf;
+    font-size: 14px;
+    font-weight: 300;
+    background: #ecf0f3;
+    text-transform: uppercase;
+    padding: 10px 0;
+    @include mn768 {
+        padding: 20px 0;
+    }
+    a {
+        color: inherit;
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    .breadcrumb_last {
+        color: #01121c;
     }
 }

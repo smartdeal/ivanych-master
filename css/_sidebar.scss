@@ -62,20 +62,10 @@
         background-size: cover;
         height: 200px;
         margin-bottom: 20px;
-        position: relative;
-        &:before {
-            opacity: 0;
-            transition: opacity .5s 0s;
-            content: '';
-            background: rgba(0, 135, 216, 0.65) url(../img/icon-hover-news.png) center no-repeat;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-        }
+        @include image-more-hover;
     }
     &__title {
+        display: block;
         color: $color1;
         font-size: 18px;
         font-weight: 700;
