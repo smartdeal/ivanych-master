@@ -76,3 +76,66 @@ function get_portfolio($posts_per_page = -1) {
     echo $out;
 }
 
+function the_footer_useful(){
+    $cat_slug = 'useful';
+    $cat_name = get_category_by_slug($cat_slug)->cat_name; 
+    $out = '';
+    $arg =  array(
+        'orderby'      => 'rand',
+        // 'orderby'      => 'menu_order',
+        // 'order'        => 'ASC',
+        'posts_per_page' => 3,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'category_name' => $cat_slug
+    );
+    $query = new WP_Query($arg);
+    if ($query->have_posts() ):
+        $out .= '<div class="footer-news"><div class="container">';
+        $out .= '<div class="footer-news__title block-title">'.$cat_name.'</div>';
+        $out .= '<div class="b-news b-news_footer js-slick js-news-footer">';
+        while ( $query->have_posts() ): 
+            $query->the_post();    
+            $out .= '<div class="b-news__item"><a class="b-news__link" href="#" title="'.get_the_title().'">';
+            if (has_post_thumbnail()) $img_src = wp_get_attachment_image_url(get_post_thumbnail_id(),'medium');
+                else $img_src = get_template_directory_uri().'/img/placeholder.jpg';
+            $out .= '<div class="b-news__img" style="background-image:url('.$img_src.');"></div>';
+            $out .= '<div class="b-news__body"><div class="b-news__title">'.get_the_title().'</div><div class="b-news__txt">'.get_the_excerpt().'</div></div>';
+            $out .= '<div class="b-news__btn_more btn">Подробнее</div>';
+            $out .= '</a></div>';
+        endwhile;
+        $out .= '</div></div></div>';
+    endif;
+    echo $out;
+}
+
+function the_last_news($num){
+    $out = '';
+    $arg =  array(
+        'posts_per_page' => $num,
+        'post_type' => 'post',
+        'post_status' => 'publish',
+        'category_name' => 'news'
+    );
+    $query = new WP_Query($arg);
+    if ($query->have_posts() ):
+        $out .= '<div class="b-news">';
+        while ( $query->have_posts() ): 
+            $query->the_post();    
+            $out .= '<div class="b-news__item"><a class="b-news__link" href="#" title="'.get_the_title().'">';
+            if (has_post_thumbnail()) $img_src = wp_get_attachment_image_url(get_post_thumbnail_id(),'medium');
+                else $img_src = get_template_directory_uri().'/img/placeholder.jpg';
+            $out .= '<div class="b-news__img" style="background-image:url('.$img_src.');"></div>';
+            $out .= '<div class="b-news__body"><div class="b-news__title">'.get_the_title().'</div><div class="b-news__txt">'.get_the_excerpt().'</div></div>';
+            $out .= '</a></div>';
+        endwhile;
+        $out .= '<a class="b-news__btn_more btn" href="'.home_url().'">Все новости</a></div>';
+    endif;
+    echo $out;
+}
+
+function the_custom_title(){
+    $title = get_field('page_title');
+    if (!$title) $title = get_the_title();
+    echo $title;
+}

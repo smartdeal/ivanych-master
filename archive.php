@@ -19,16 +19,14 @@
                 <?php while (have_posts()): the_post(); 
                     $post_title = get_the_title(); 
                     $post_link = get_the_permalink();
-                    $is_have_img_class = '';
                 ?>
-                <div class="b-news__item<?php if (has_post_thumbnail()) echo ' b-arch-content_with-img'?>" itemscope itemtype="http://schema.org/Article">
+                <div class="b-news__item<?php if (!has_post_thumbnail()) echo ' b-news__item_without-img'?>" itemscope itemtype="http://schema.org/Article">
                     <?php if (has_post_thumbnail()): ?>
                         <a class="b-news__link" href="<?php echo $post_link; ?>" title="Перейти на страницу <?php echo $post_title; ?>">
                             <div data-aload class="b-news__img" style="background-image:url(<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'medium'); ?>);"></div>
                         </a>
-                    <?php else: $is_have_img_class = 'b-news_without-img'; ?>
                     <?php endif; ?>
-                    <div class="b-news__body <?php echo $is_have_img_class; ?>">
+                    <div class="b-news__body">
                         <a href="<?php echo $post_link; ?>" class="b-news__title" itemprop="headline" title="Перейти на страницу <?php echo $post_title; ?>"><?php echo $post_title; ?></a>
                         <div class="b-news__txt" itemprop="articleBody"><?php the_excerpt(); ?></div>
                     </div>

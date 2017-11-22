@@ -31,7 +31,8 @@ body {
 h1 {
   font-size: inherit;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  line-height: 1; }
 
 a {
   color: inherit;
@@ -621,6 +622,12 @@ a:hover {
   font-size: 36px;
   font-weight: 700;
   margin-bottom: 40px; }
+.content__body {
+  overflow: hidden; }
+.content__img {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 1em; }
 
 @media (min-width: 1200px) {
   .main-layout__sidebar {
@@ -675,14 +682,27 @@ a:hover {
   line-height: 1;
   opacity: .6; }
 
-.content__single .content__title {
-  margin-bottom: 20px; }
-.content__single .content__body {
-  overflow: hidden; }
-.content__single .content__img {
-  float: left;
-  margin-right: 1em;
-  margin-bottom: 1em; }
+.content-block {
+  margin: 30px 0; }
+
+.title_black {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 20px 0;
+  display: flex;
+  align-items: center; }
+  .title_black:after {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    height: 2px;
+    background-color: #f0f3f5;
+    width: 50px;
+    flex-grow: 10; }
+  .title_black span {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 1em; }
 
 input {
   background: #f0f3f5;
@@ -1212,6 +1232,19 @@ input {
     width: 77px;
     height: 69px; }
 
+.b-about-target__body {
+  background: #0087d8 url(../img/icon-quote.png) no-repeat;
+  background-position: left 50px bottom 30px;
+  color: white;
+  font-size: 18px;
+  font-weight: 300;
+  border-radius: 10px;
+  padding: 25px;
+  line-height: 1.4; }
+.b-about-target__sing {
+  text-align: right;
+  margin-top: 15px; }
+
 .b-grid {
   margin: 30px 0; }
   .b-grid__title {
@@ -1353,6 +1386,9 @@ input {
     .content__list .b-news__item {
       height: 215px;
       padding-left: 320px; } }
+@media (min-width: 768px) {
+  .content__list .b-news__item_without-img {
+    padding-left: 0; } }
 .content__list .b-news__title {
   text-decoration: underline; }
   @media (min-width: 768px) {
@@ -1383,6 +1419,9 @@ input {
   text-decoration: underline; }
   .content__list .b-news__btn-more:hover {
     text-decoration: none; }
+
+.archive .content__title {
+  margin-bottom: 20px; }
 
 .footer {
   margin-bottom: 500px; }

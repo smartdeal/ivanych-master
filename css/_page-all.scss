@@ -39,6 +39,14 @@ a:hover {
         font-weight: 700;
         margin-bottom: 40px;
     }
+    &__body {
+        overflow: hidden;
+    }
+    &__img {
+        float: left;
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
 }
 
 .main-layout {
@@ -92,16 +100,28 @@ a:hover {
     }
 }
 
-.content__single {
-    .content__title {
-        margin-bottom: 20px;
+.content-block {
+    margin: 30px 0;
+}
+
+.title_black {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    &:after {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 2px;
+        background-color: #f0f3f5;
+        width: 50px;
+        flex-grow: 10;
     }
-    .content__body {
-        overflow: hidden;
-    }
-    .content__img {
-        float: left;
-        margin-right: 1em;
-        margin-bottom: 1em;
+    span {
+        display: inline-block;
+        vertical-align: middle;
+        padding-right: 1em;
     }
 }

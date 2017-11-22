@@ -1,7 +1,7 @@
 .content__list {
-	.b-news {
-		margin-bottom: 20px;
-	}
+    .b-news {
+        margin-bottom: 20px;
+    }
     .b-news__item {
         padding-bottom: 25px;
         margin-top: 25px;
@@ -10,6 +10,11 @@
         @include mn768 {
             height: 215px;
             padding-left: 320px;
+        }
+    }
+    .b-news__item_without-img {
+        @include mn768 {
+            padding-left: 0;
         }
     }
     .b-news__title {
@@ -53,5 +58,11 @@
         &:hover {
             text-decoration: none;
         }
+    }
+}
+
+.archive {
+    .content__title {
+        margin-bottom: 20px;
     }
 }
