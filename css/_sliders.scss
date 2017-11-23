@@ -1,3 +1,25 @@
+.slick-prev,
+.slick-next {
+    width: 16px;
+    height: 31px;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -15px;
+    background: url(../img/icons-bundle.png) center no-repeat;
+    background-position: -21px -18px;
+    cursor: pointer;
+    text-indent: -999em;
+    border: 0;
+    -webkit-appearance: none;
+    z-index: 1;
+}
+
+.slick-prev {
+    left: 10px;
+    background-position: 0 -18px;
+}
+
 .main-slider {
     text-align: center;
     position: relative;
@@ -85,6 +107,42 @@
     transition: opacity 1s;
 }
 
+.js-slick.is_showed,
 .js-slick.slick-initialized {
     opacity: 1;
+}
+
+.b-slider-big {
+    &__img {
+        background: url('') center no-repeat;
+        background-size: cover;
+        height: 0;
+        padding-bottom: 70%;
+        border-radius: 10px;
+    }
+    .slick-prev {
+        background-position: -96px 0;
+    }
+    .slick-next {
+        background-position: -112px 0;
+    }
+}
+
+.b-slider-thumb {
+    margin-top: 10px;
+    &__wrap {
+        display: none;
+        @include mn768 {
+            display: block;
+        }
+    }
+    &__item {
+        padding: 7px;
+    }
+    &__img {
+        background: url('') center no-repeat;
+        background-size: cover;
+        height: 60px;
+        border-radius: 5px;
+    }
 }

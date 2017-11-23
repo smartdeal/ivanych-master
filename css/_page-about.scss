@@ -1,0 +1,104 @@
+.b-about-target {
+    &__body {
+        background: $color1 url(../img/icon-quote.png) no-repeat;
+        background-position: left 50px bottom 30px;
+        color: white;
+        font-size: 18px;
+        font-weight: 300;
+        border-radius: 10px;
+        padding: 25px;
+        line-height: 1.4;
+    }
+    &__sing {
+        text-align: right;
+        margin-top: 15px;
+    }
+}
+
+.b-about-worth {
+    .b-bullet__item {
+        @include mn768 {
+            width: 33.33%;
+        }
+        .b-bullet__img-wrap:after,
+        .b-bullet__img-wrap:before {
+            @include mn768 {
+                content: '';
+                width: 30px;
+                height: 30px;
+                background-color: $color2;
+                box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                top: 50%;
+                margin-top: -15px;
+                right: -15px;
+            }
+        }
+        .b-bullet__img-wrap:before {
+            left: -15px;
+        }
+        &_1 {
+            .b-bullet__img-wrap:before {
+                display: none;
+                @include mn768 {
+                	display: block;
+                    height: 3px;
+                    background: $color2;
+                    left: 100%;
+                    border-radius: 0;
+                    width: 200px;
+                    right: auto;
+                    margin-top: -1px;
+                    z-index: -1;
+                }
+            }
+            .b-bullet__img {
+                width: 100px;
+                height: 97px;
+                background-position: 0px -152px;
+            }
+        }
+        &_2 {
+            .b-bullet__img {
+                width: 118px;
+                height: 132px;
+                background-position: -104px -151px;
+            }
+        }
+        &_3 {
+            .b-bullet__img-wrap:after {
+                display: none;
+                @include mn768 {
+                	display: block;
+                    height: 3px;
+                    background: $color2;
+                    right: 100%;
+                    border-radius: 0;
+                    width: 200px;
+                    left: auto;
+                    margin-top: -1px;
+                    z-index: -1;
+                }
+            }
+            .b-bullet__img {
+                width: 94px;
+                height: 90px;
+                background-position: -225px -151px;
+            }
+        }
+    }
+}
+
+.content_about {
+    .content__body {
+        margin: 30px 0;
+    }
+    .content__txt {
+        background: #f0f3f5;
+        padding: 25px;
+        border-radius: 10px;
+        font-size: 18px;
+    }
+}

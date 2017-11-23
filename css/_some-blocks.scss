@@ -61,32 +61,18 @@
             vertical-align: middle;
         }
     }
-    &__arrow-prev,
     &__arrow-next {
-        width: 16px;
-        height: 31px;
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        margin-top: -15px;
-        background: url(../img/icons-bundle.png) center no-repeat;
-        background-position: -21px -18px;
+        @extend .slick-next;
     }
     &__arrow-prev {
-        left: 10px;
-        background-position: 0 -18px;
+        @extend .slick-prev;
     }
-    &__arrow-next {}
 }
 
-.b-why-choose {
-    margin: 30px 0;
-    padding: 50px 0;
-    background-color: #f0f3f5;
-    background-image: linear-gradient(to right, rgba(193, 193, 202, 0.25) 0%, rgba(234, 235, 238, 0.25) 100%);
-    text-align: center;
+.b-bullet {
     &__items {
         font-size: 0;
+        text-align: center;
     }
     &__item {
         width: 225px;
@@ -135,28 +121,36 @@
         background: url('../img/icons-bundle.png') center no-repeat;
         @include block-center;
     }
-    &__item {
-        &_1 .b-why-choose__img {
+}
+
+.b-why-choose {
+    margin: 30px 0;
+    padding: 50px 0;
+    background-color: #f0f3f5;
+    background-image: linear-gradient(to right, rgba(193, 193, 202, 0.25) 0%, rgba(234, 235, 238, 0.25) 100%);
+    text-align: center;
+    .b-bullet__item {
+        &_1 .b-bullet__img {
             background-position: 0 -53px;
             width: 84px;
             height: 95px;
         }
-        &_2 .b-why-choose__img {
+        &_2 .b-bullet__img {
             background-position: -89px -61px;
             width: 68px;
             height: 74px;
         }
-        &_3 .b-why-choose__img {
+        &_3 .b-bullet__img {
             background-position: -162px -64px;
             width: 73px;
             height: 73px;
         }
-        &_4 .b-why-choose__img {
+        &_4 .b-bullet__img {
             background-position: -240px -66px;
             width: 74px;
             height: 70px;
         }
-        &_5 .b-why-choose__img {
+        &_5 .b-bullet__img {
             background-position: -319px -66px;
             width: 77px;
             height: 69px;
@@ -164,19 +158,43 @@
     }
 }
 
-.b-about-target {
-    &__body {
-        background: $color1 url(../img/icon-quote.png) no-repeat;
-        background-position: left 50px bottom 30px;
-        color: white;
-        font-size: 18px;
-        font-weight: 300;
-        border-radius: 10px;
-        padding: 25px;
-        line-height: 1.4;
+.b-managers {
+    &__items {
+        margin: 0 -12px;
+        font-size: 0;
     }
-    &__sing {
-        text-align: right;
-        margin-top: 15px;
+    &__item {
+        width: 25%;
+        display: inline-block;
+        vertical-align: top;
+        padding: 12px;
+        font-size: 16px;
+        text-align: center;
+    }
+    &__img-wrap {
+        margin-bottom: 10px;
+    }
+    &__img {
+        background: url('') center no-repeat;
+        background-size: cover;
+        height: 0;
+        padding-bottom: 100%;
+    }
+    &__name {
+        font-weight: 700;
+        margin: 15px 0 5px;
+    }
+    &__email {
+        @include icon-bundle-email-blue;
+        display: inline-block;
+        padding-left: 25px;
+        color: $color1;
+        text-decoration: underline;
+        &:after {
+            margin-top: 3px;
+        }
+        &::hover {
+            text-decoration: none;
+        }
     }
 }

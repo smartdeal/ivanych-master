@@ -139,3 +139,46 @@ function the_custom_title(){
     if (!$title) $title = get_the_title();
     echo $title;
 }
+
+function the_managers(){
+    $out = '';
+    $managers = get_field('managers',135);
+    if ($managers): 
+        $out .= '<div class="b-managers content-block">';
+        $out .= '<div class="title-line title-line_blue"><span>Отдел по работе с клиентами:</span></div>';
+        $out .= '<div class="b-managers__body">';
+        $out .= '<div class="b-managers__items js-slick js-slider-managers">';
+        foreach ($managers as $key => $value): 
+            $out .= '<div class="b-managers__item"><div class="b-managers__inner"><div class="b-managers__img-wrap">';
+            if ($value['img']) $img_src = $value['img']['sizes']['medium'];
+                else $img_src = get_template_directory_uri().'/img/placeholder-man.jpg';
+            $out .= '<div class="b-managers__img" style="background-image:url('.$img_src.')"></div></div>';
+            $out .= '<div class="b-managers__name">'.$value['name'].'<span>доб '.$value['dob'].'</span></div>';
+            $out .= '<a class="b-managers__email" href="mailto:'.$value['email'].'">'.$value['email'].'</a></div></div>';
+        endforeach;
+        $out .= '</div></div></div>';
+        echo $out;
+    endif;
+}
+
+function the_our_production(){
+    $out = '';
+    $managers = get_field('production-imgs',159);
+    if ($managers): 
+        $out .= '<div class="b-our-production content-block">';
+        $out .= '<div class="title-line title-line_blue"><span>Наше производство</span></div>';
+        $out .= '<div class="b-our-production__body">';
+        $out .= '<div class="b-slider-big js-slick js-slider-production">';
+        foreach ($managers as $key => $value):
+            $out .= '<div class="b-slider-big__item"><div class="b-slider-big__img" style="background-image:url('.$value['sizes']['large'].')"></div></div>';
+        endforeach;
+        $out .= '</div>';
+        $out .= '<div class="b-slider-thumb__wrap"><div class="b-slider-thumb js-slick js-slider-production-thumb">';
+        foreach ($managers as $key => $value):
+            $out .= '<div class="b-slider-thumb__item"><div class="b-slider-thumb__img" style="background-image:url('.$value['sizes']['thumbnail'].')"></div></div>';
+        endforeach;
+        $out .= '</div></div>';
+        $out .= '</div></div>';
+        echo $out;
+    endif;
+}

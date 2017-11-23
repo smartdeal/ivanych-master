@@ -18,8 +18,14 @@ $(document).ready(function() {
             slider_front_init();
             slider_partners_logo_init();
             slider_why_choose_init();
+            slider_about_worth_init();
+            slider_managers_init();
             slider_footer_news_init();
+            slider_our_production_init();
         });        
+        $(window).on('resize orientationchange', function() {
+              $('.js-slick').slick('resize');
+        });
     }
 
     $('input[type=tel]').inputmask({
@@ -85,46 +91,6 @@ $(window).scroll(function() {
 
 });
 
-/* Yandex Map
- ========================================================*/
-    // var map_container = document.getElementById("map");
-    // if (map_container) {
-    //     $(document).ready(function () {
-    //         get_map(map_container, map_contact);
-    //     });
-    // }
-
-    // function get_map(map_container, map_array){
-    //     if (map_container !== null) {
-    //         ymaps.ready(init);
-    //         var myMap, 
-    //             myPlacemark,
-    //             curLat,
-    //             curLong,
-    //             curDesc;
-
-    //         function init(){ 
-    //             curLat = map_array['lat'];
-    //             curLong = map_array['long'];
-    //             myMap = new ymaps.Map(map_container, {
-    //                 // center: [61.582319, 98.112851],
-    //                 center: [curLat, curLong],
-    //                 zoom: 17
-    //             }); 
-    //             // curDesc = map_array['desc'];
-    //             myPlacemark = new ymaps.Placemark([curLat, curLong], {}, {
-    //                 // balloonContent: curDesc
-    //                 iconLayout: 'default#image',
-    //                 iconImageHref: theme_url+'/img/map-pin.png',
-    //                 iconImageSize: [42, 58],
-    //                 iconImageOffset: [-30, -70]
-    //             });
-    //             myMap.geoObjects.add(myPlacemark);
-    //         }
-    //     }
-    // }
-
-
 // Lazy load
 function aload(t){"use strict";t=t||window.document.querySelectorAll("[data-aload]"),void 0===t.length&&(t=[t]);var a,e=0,r=t.length;for(e;r>e;e+=1)a=t[e],a["LINK"!==a.tagName?"src":"href"]=a.getAttribute("data-aload"),a.removeAttribute("data-aload");return t}
 
@@ -179,6 +145,102 @@ function slider_footer_news_init() {
                 responsive: [
                     {
                         breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                  ]
+            });
+    }
+}
+
+function slider_about_worth_init() {
+    if ($('.js-about-worth').length) {
+        $('.js-about-worth')
+            .on('init', function(event, slick){
+                $(this).addClass('is_showed');
+            })
+            .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 99999,
+                        settings: "unslick"
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    }
+                  ]
+            });
+    }
+}
+
+function slider_our_production_init() {
+    if ($('.js-slider-production').length) {
+        $('.js-slider-production')
+            .on('init', function(event, slick){
+                $(this).addClass('is_showed');
+            })
+            .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                adaptiveHeight: false,
+                asNavFor: '.js-slider-production-thumb'
+            });
+    }
+    if ($('.js-slider-production-thumb').length) {
+        $('.js-slider-production-thumb')
+            .on('init', function(event, slick){
+                $(this).addClass('is_showed');
+            })
+            .slick({
+                slidesToShow: 7,
+                slidesToScroll: 1,
+                asNavFor: '.js-slider-production',
+                arrows: false,
+                centerMode: true,
+                focusOnSelect: true
+            });
+    }
+}
+
+function slider_managers_init() {
+    if ($('.js-slider-managers').length) {
+        $('.js-slider-managers')
+            .on('init', function(event, slick){
+                $(this).addClass('is_showed');
+            })
+            .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 99999,
+                        settings: "unslick"
+                    },
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 3,
+                        }
+                    },
+                    {
+                        breakpoint: 550,
+                        settings: {
+                            slidesToShow: 2,
+                        }
+                    },
+                    {
+                        breakpoint: 420,
                         settings: {
                             slidesToShow: 1,
                         }
@@ -254,3 +316,41 @@ function loadCSS(url){
 
 });
 
+/* Yandex Map
+ ========================================================*/
+    // var map_container = document.getElementById("map");
+    // if (map_container) {
+    //     $(document).ready(function () {
+    //         get_map(map_container, map_contact);
+    //     });
+    // }
+
+    // function get_map(map_container, map_array){
+    //     if (map_container !== null) {
+    //         ymaps.ready(init);
+    //         var myMap, 
+    //             myPlacemark,
+    //             curLat,
+    //             curLong,
+    //             curDesc;
+
+    //         function init(){ 
+    //             curLat = map_array['lat'];
+    //             curLong = map_array['long'];
+    //             myMap = new ymaps.Map(map_container, {
+    //                 // center: [61.582319, 98.112851],
+    //                 center: [curLat, curLong],
+    //                 zoom: 17
+    //             }); 
+    //             // curDesc = map_array['desc'];
+    //             myPlacemark = new ymaps.Placemark([curLat, curLong], {}, {
+    //                 // balloonContent: curDesc
+    //                 iconLayout: 'default#image',
+    //                 iconImageHref: theme_url+'/img/map-pin.png',
+    //                 iconImageSize: [42, 58],
+    //                 iconImageOffset: [-30, -70]
+    //             });
+    //             myMap.geoObjects.add(myPlacemark);
+    //         }
+    //     }
+    // }
