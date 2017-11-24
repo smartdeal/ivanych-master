@@ -122,6 +122,9 @@ function custom_post_type() {
 
     register_post_type( 'block', $args );
 
+
+    unregister_post_type( 'forms' );
+
     // register_taxonomy('race-type', array('team-ivanych'), array(
     //     'labels'                => array(
     //         'name'              => 'Тип гонок',

@@ -144,5 +144,22 @@
         background-size: cover;
         height: 60px;
         border-radius: 5px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        &::before {
+            content: '';
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: rgba(0, 135, 216, 0.65);
+            position: absolute;
+            opacity: 0;
+            transition: opacity .5s 0s;
+        }
+        &:hover::before {
+            opacity: 1;
+        }
     }
 }

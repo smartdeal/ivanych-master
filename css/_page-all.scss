@@ -20,8 +20,17 @@ body {
         overflow: hidden;
     }
 }
-
 .content {
+    h1,h2,h3,h4,h5,h6 {
+        font-weight: 700;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    p {
+        font-size: inherit;
+        font-weight: inherit;
+    }
     &__inner {
         margin-top: 30px;
     }
@@ -43,6 +52,31 @@ body {
         margin-right: 1em;
         margin-bottom: 1em;
     }
+    ul,ol {
+        margin: 1em 0;
+    }
+    ol {
+        counter-reset: list 0;
+    }
+    ul li::before {
+        content: '\2022';
+        padding-right: .5em;
+        color: $color1;
+    }
+    ol li::before {
+        counter-increment: list;
+        content: counter(list) ".";
+        padding-right: .5em;
+        color: $color1;
+    }
+    &__txt {
+        font-size: 18px;
+        &_bg-grey{
+            background: #f0f3f5;
+            padding: 25px;
+            border-radius: 10px;            
+        }
+    }    
 }
 
 .main-layout {
@@ -98,6 +132,7 @@ body {
 
 .content-block {
     margin: 30px 0;
+    font-size: 18px;
 }
 
 .title-line {

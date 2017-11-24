@@ -7,7 +7,7 @@
 
 @mixin icons-bundle {
     position: relative;
-    &:after {
+    &::after {
         display: block;
         position: absolute;
         left: 0;
@@ -22,7 +22,7 @@
 
 @mixin icon-bundle-email-blue {
     @include icons-bundle;
-    &:after {
+    &::after {
         width: 20px;
         height: 10px;
         background-position: 3px 0px;
@@ -31,7 +31,7 @@
 
 @mixin icon-bundle-tel {
     @include icons-bundle;
-    &:after {
+    &::after {
         width: 20px;
         height: 16px;
         background-position: -45px 0px;
@@ -40,7 +40,7 @@
 
 @mixin icon-bundle-wallet {
     @include icons-bundle;
-    &:after {
+    &::after {
         width: 20px;
         height: 16px;
         background-position: -21px 0px;
@@ -49,7 +49,7 @@
 
 @mixin icon-bundle-tel-white-25-25 {
     @include icons-bundle;
-    &:after {
+    &::after {
         width: 25px;
         height: 25px;
         background-position: -68px 0px;
@@ -58,7 +58,7 @@
 
 @mixin image-more-hover {
     position: relative;
-    &:before {
+    &::before {
         opacity: 0;
         transition: opacity .5s 0s;
         content: '';
@@ -71,8 +71,43 @@
     }
 }
 
+@mixin image-search-hover {
+    position: relative;
+    overflow: hidden;
+    &::after,
+    &::before {
+        opacity: 0;
+        transition: opacity .5s 0s;
+        content: '';
+        position: absolute;
+    }
+    &::before {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: rgba(0, 135, 216, 0.65);
+    }
+    &::after {
+        width: 25px;
+        height: 25px;
+        background: url(../img/icons-bundle.png) no-repeat;
+        background-position: -132px 0;
+        top: 50%;
+        left: 50%;
+        margin-top: -12px;
+        margin-left: -12px;
+    }
+    &:hover{
+        &::before,
+        &::after {
+            opacity: 1;
+        }
+    }
+}
+
 @mixin arrow-prev {
-    &:before {
+    &::before {
         content: '';
         display: inline-block;
         width: 23px;
@@ -81,12 +116,12 @@
         background-position: -44px -24px;
         line-height: 1;
         opacity: .6;
-    }    
+    }
 }
 
 @mixin arrow-next {
     @include arrow-prev;
-    &:before {
+    &::before {
         background-position: -44px -36px;
-    }    
+    }
 }

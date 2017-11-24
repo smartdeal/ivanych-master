@@ -43,7 +43,7 @@
             .b-bullet__img-wrap:before {
                 display: none;
                 @include mn768 {
-                	display: block;
+                    display: block;
                     height: 3px;
                     background: $color2;
                     left: 100%;
@@ -71,7 +71,7 @@
             .b-bullet__img-wrap:after {
                 display: none;
                 @include mn768 {
-                	display: block;
+                    display: block;
                     height: 3px;
                     background: $color2;
                     right: 100%;
@@ -95,10 +95,26 @@
     .content__body {
         margin: 30px 0;
     }
-    .content__txt {
-        background: #f0f3f5;
-        padding: 25px;
-        border-radius: 10px;
-        font-size: 18px;
+}
+
+.content .b-our-production__items {
+	margin: 40px 0;
+    font-size: 18px;
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    li {
+        padding-left: 30px;
+        position: relative;
+        margin-bottom: 15px;
+        &::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
     }
+}
+
+.b-about-cooperation__body {
+    font-size: 18px;
 }

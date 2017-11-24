@@ -164,7 +164,7 @@ function the_managers(){
 function the_our_production(){
     $out = '';
     $managers = get_field('production-imgs',159);
-    if ($managers): 
+    if (is_array($managers)): 
         $out .= '<div class="b-our-production content-block">';
         $out .= '<div class="title-line title-line_blue"><span>Наше производство</span></div>';
         $out .= '<div class="b-our-production__body">';
@@ -178,7 +178,21 @@ function the_our_production(){
             $out .= '<div class="b-slider-thumb__item"><div class="b-slider-thumb__img" style="background-image:url('.$value['sizes']['thumbnail'].')"></div></div>';
         endforeach;
         $out .= '</div></div>';
+        $items = get_field('production-items',159);
+        if (is_array($items)):
+            $out .= '<ol class="b-our-production__items">';
+                foreach ($items as $key => $value) $out .= '<li class="b-our-production__item">'.$value['item'].'</li>';
+            $out .= '</ol';
+        endif;
         $out .= '</div></div>';
         echo $out;
     endif;
+}
+
+function the_form_feedback($id = 0) {
+    $out = '<div class="b-form b-form_feedback">';
+    $out .= '<div class="b-form__title title-line title-line_blue">'.get_the_title($id).'</div>';
+    $out .= do_shortcode( '[contact-form-7 id="'.$id.'"]' );
+    $out .= '</div>';
+    echo $out;
 }
