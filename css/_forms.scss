@@ -18,6 +18,7 @@ input {
     border-radius: 50px;
     box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
 }
+
 .btn {
     @include mx-btn;
     background-color: $color1;
@@ -25,11 +26,88 @@ input {
     color: white;
     &_c2 {
         @include mx-btn;
-    	background: $color2;
-    	color: #2b3338;
+        background: $color2;
+        color: #2b3338;
     }
     &:hover {
         text-decoration: none;
         color: white;
+    }
+}
+
+.wpcf7 {
+    position: relative;
+    .wpcf7-not-valid-tip {
+        display: none !important;
+    }
+    .wpcf7-not-valid {
+        border-color: red !important;
+    }
+    div.wpcf7-response-output {
+        margin: 0;
+        position: absolute;
+        left: 3px;
+        right: 3px;
+        bottom: 3px;
+        background: white;
+        padding: 5%;
+        text-align: center;
+    }
+}
+
+.b-form {
+    margin: 30px 0;
+    &__body {
+        background: #f0f3f5;
+        padding: 20px 30px 40px;
+        @include mn768 {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+    input,
+    textarea {
+        background: white;
+        border: 1px solid #cdcdcd;
+        padding: 13px 25px;
+    }
+    textarea {
+        border-radius: 5px;
+        resize: none;
+    }
+    .wpcf7-submit {
+        @extend .btn_c2;
+        width: auto;
+        font-size: 16px;
+        @include mn768 {
+            padding: 20px 60px;
+        }
+    }
+    label {
+        font-size: 20px;
+        font-weight: 700;
+        display: block;
+    }
+    .wpcf7-form-control-wrap {
+        margin-top: 15px;
+        display: block;
+    }
+    &__field {
+        margin-bottom: 20px;
+        @include mn768 {
+            width: 50%;
+            padding-right: 30px;
+        }
+        &_name {
+            @include mn768 {
+                margin-right: 50%;
+            }
+        }
+        &_msg {
+            @include mn768 {
+                width: 100%;
+                padding-right: 0;
+            }
+        }
     }
 }

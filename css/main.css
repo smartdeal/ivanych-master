@@ -605,7 +605,7 @@ input {
   background-color: #0087d8;
   background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
   color: white; }
-  .btn_c2 {
+  .btn_c2, .b-form .wpcf7-submit {
     display: inline-block;
     vertical-align: middle;
     max-width: 100%;
@@ -621,6 +621,66 @@ input {
   .btn:hover {
     text-decoration: none;
     color: white; }
+
+.wpcf7 {
+  position: relative; }
+  .wpcf7 .wpcf7-not-valid-tip {
+    display: none !important; }
+  .wpcf7 .wpcf7-not-valid {
+    border-color: red !important; }
+  .wpcf7 div.wpcf7-response-output {
+    margin: 0;
+    position: absolute;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    background: white;
+    padding: 5%;
+    text-align: center; }
+
+.b-form {
+  margin: 30px 0; }
+  .b-form__body {
+    background: #f0f3f5;
+    padding: 20px 30px 40px; }
+    @media (min-width: 768px) {
+      .b-form__body {
+        display: flex;
+        flex-wrap: wrap; } }
+  .b-form input,
+  .b-form textarea {
+    background: white;
+    border: 1px solid #cdcdcd;
+    padding: 13px 25px; }
+  .b-form textarea {
+    border-radius: 5px;
+    resize: none; }
+  .b-form .wpcf7-submit {
+    width: auto;
+    font-size: 16px; }
+    @media (min-width: 768px) {
+      .b-form .wpcf7-submit {
+        padding: 20px 60px; } }
+  .b-form label {
+    font-size: 20px;
+    font-weight: 700;
+    display: block; }
+  .b-form .wpcf7-form-control-wrap {
+    margin-top: 15px;
+    display: block; }
+  .b-form__field {
+    margin-bottom: 20px; }
+    @media (min-width: 768px) {
+      .b-form__field {
+        width: 50%;
+        padding-right: 30px; } }
+    @media (min-width: 768px) {
+      .b-form__field_name {
+        margin-right: 50%; } }
+    @media (min-width: 768px) {
+      .b-form__field_msg {
+        width: 100%;
+        padding-right: 0; } }
 
 .header {
   background: url(../img/bg-header.png) top left no-repeat;

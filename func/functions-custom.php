@@ -191,7 +191,7 @@ function the_our_production(){
 
 function the_form_feedback($id = 0) {
     $out = '<div class="b-form b-form_feedback">';
-    $out .= '<div class="b-form__title title-line title-line_blue">'.get_the_title($id).'</div>';
+    $out .= '<div class="b-form__title title-line title-line_blue"><span>'.get_the_title($id).'</span></div>';
     $out .= do_shortcode( '[contact-form-7 id="'.$id.'"]' );
     $out .= '</div>';
     echo $out;

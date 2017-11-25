@@ -53,11 +53,15 @@ $(document).ready(function() {
     // });
 
     // document.addEventListener( 'wpcf7submit', function( event ) {
-    //         alert( "The contact form ID is 123." );
+    //         // alert( "The contact form ID is 123." );
     //         // do something productive
-    //     }
     // }, false );
 
+    $(".wpcf7").on('wpcf7submit', function(event){
+        setTimeout(function() { 
+            $('.wpcf7-response-output').slideUp('slow');
+        }, 5000);    
+    });
 
     // $('.link-ajax').click(function(event) {
     //     event.preventDefault();
