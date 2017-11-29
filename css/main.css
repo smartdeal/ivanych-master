@@ -2121,13 +2121,17 @@ body {
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
-  z-index: -1; }
+  z-index: -1;
+  min-width: 73px;
+  text-align: center; }
 .b-accord_price .b-accord__item::after {
   border-color: white;
   width: 7px;
   height: 7px;
   top: 25px;
   right: 20px; }
+.b-accord_price .b-accord__item.opened::before {
+  content: 'Скрыть'; }
 .b-accord_price .b-accord__item.opened::after {
   border-color: white;
   top: 29px; }

@@ -22,26 +22,27 @@ function ivanych_scripts() {
         wp_enqueue_script( 'ivanych-js-main',		get_template_directory_uri() . '/js/main.js', array('jquery','ivanych-js-plugins'), '20170630', true );       
 	    
 	    // include map if we have coorditates
-	    $page_contacts_lat = get_field('page-contacts-lat', 251);
-        $page_contacts_long = get_field('page-contacts-long', 251);
-        $page_contacts_adr = get_field('page-contacts-adr', 251);
-        if (!$page_contacts_adr) $page_contacts_adr = '';
-        if ($page_contacts_lat && $page_contacts_long){
-            $page_contacts_lat = str_replace(',', '.', $page_contacts_lat);
-            $page_contacts_long = str_replace(',', '.', $page_contacts_long);
-	        wp_enqueue_script( 'ivanych-js-map', '//api-maps.yandex.ru/2.1/?lang=ru_RU', array('jquery', 'ivanych-js-main'), '20171130', true );
-            wp_localize_script(
-			    'ivanych-js-map',
-			    'map_vars',
-			    array(
-			    	'lat' => $page_contacts_lat,
-			    	'long' => $page_contacts_long,
-			    	'adr' => $page_contacts_adr,
-			        'template_directory' => get_template_directory_uri()
-			    )
-		    );
+	    if (is_page(251) || is_page_template('page-contacts.php')) {
+		    $page_contacts_lat = get_field('page-contacts-lat', 251);
+	        $page_contacts_long = get_field('page-contacts-long', 251);
+	        $page_contacts_adr = get_field('page-contacts-adr', 251);
+	        if (!$page_contacts_adr) $page_contacts_adr = '';
+	        if ($page_contacts_lat && $page_contacts_long){
+	            $page_contacts_lat = str_replace(',', '.', $page_contacts_lat);
+	            $page_contacts_long = str_replace(',', '.', $page_contacts_long);
+		        wp_enqueue_script( 'ivanych-js-map', '//api-maps.yandex.ru/2.1/?lang=ru_RU', array('jquery', 'ivanych-js-main'), '20171130', true );
+	            wp_localize_script(
+				    'ivanych-js-map',
+				    'map_vars',
+				    array(
+				    	'lat' => $page_contacts_lat,
+				    	'long' => $page_contacts_long,
+				    	'adr' => $page_contacts_adr,
+				        'template_directory' => get_template_directory_uri()
+				    )
+			    );
+	        }
         }
-
     }
 }
 add_action( 'wp_enqueue_scripts', 'ivanych_scripts' );
