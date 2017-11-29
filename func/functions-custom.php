@@ -161,31 +161,29 @@ function the_managers(){
     endif;
 }
 
-function the_our_production(){
+$slider_with_thumb_count = 0;
+function the_slider_with_thumb($imgs, $title = ''){
+    global $slider_with_thumb_count;
     $out = '';
-    $managers = get_field('production-imgs',159);
-    if (is_array($managers)): 
-        $out .= '<div class="b-our-production content-block">';
-        $out .= '<div class="title-line title-line_blue"><span>Наше производство</span></div>';
-        $out .= '<div class="b-our-production__body">';
-        $out .= '<div class="b-slider-big js-slick js-slider-production">';
-        foreach ($managers as $key => $value):
+    if (is_array($imgs)): 
+        $out .= '<div class="b-slider-with-thumb">';
+        if ($title) {
+            $out .= '<div class="b-slider-with-thumb__title">'.$title.'</div>';
+        }
+        $out .= '<div class="b-slider-with-thumb__body">';
+        $out .= '<div class="b-slider-big js-slick js-slider-big js-slider-big-'.$slider_with_thumb_count.'">';
+        foreach ($imgs as $key => $value):
             $out .= '<div class="b-slider-big__item"><div class="b-slider-big__img" style="background-image:url('.$value['sizes']['large'].')"></div></div>';
         endforeach;
         $out .= '</div>';
-        $out .= '<div class="b-slider-thumb__wrap"><div class="b-slider-thumb js-slick js-slider-production-thumb">';
-        foreach ($managers as $key => $value):
+        $out .= '<div class="b-slider-thumb__wrap"><div class="b-slider-thumb js-slick js-slider-big-thumb js-slider-big-thumb-'.$slider_with_thumb_count.'">';
+        foreach ($imgs as $key => $value):
             $out .= '<div class="b-slider-thumb__item"><div class="b-slider-thumb__img" style="background-image:url('.$value['sizes']['thumbnail'].')"></div></div>';
         endforeach;
         $out .= '</div></div>';
-        $items = get_field('production-items',159);
-        if (is_array($items)):
-            $out .= '<ol class="b-our-production__items">';
-                foreach ($items as $key => $value) $out .= '<li class="b-our-production__item">'.$value['item'].'</li>';
-            $out .= '</ol';
-        endif;
         $out .= '</div></div>';
         echo $out;
+        $slider_with_thumb_count++;
     endif;
 }
 
@@ -195,4 +193,10 @@ function the_form_feedback($id = 0) {
     $out .= do_shortcode( '[contact-form-7 id="'.$id.'"]' );
     $out .= '</div>';
     echo $out;
+}
+
+
+function the_contact_form() {
+    $clients_form = get_field('contact-form'); 
+    if ($clients_form) the_form_feedback($clients_form);
 }

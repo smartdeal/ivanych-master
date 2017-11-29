@@ -6,8 +6,6 @@ Template Post Type: page
 ?>
 <?php get_header(); ?>
 
-<?php get_header(); ?>
-
 <?php if (have_posts()): ?>
     <?php while (have_posts()): the_post(); ?>
         <div class="content content_about" itemscope itemtype="http://schema.org/Article">
@@ -48,11 +46,44 @@ Template Post Type: page
                     <?php endif ?>
                 </div>
             <?php endif ?>
+            <?php $page_contacts_social = get_field('page-contacts-social'); ?>
+            <?php if ($page_contacts_social): ?>
+                <div class="b-contacts-social">
+                    <span class="b-contacts-social__caption">Мы в соц.сетях:</span>
+                <?php foreach ($page_contacts_social as $key => $value): ?>
+                    <a href="<?php echo $value['social-link'] ?>" class="b-contacts-social__icon <?php echo $value['social-icon'] ?>"></a>
+                <?php endforeach ?>
+                </div>
+            <?php endif ?>
             <div class="content__body">
                 <div class="content__txt" itemprop="articleBody"><?php the_content(); ?></div>
             </div>
-            <?php $clients_form = get_field('contact-form'); ?>
-            <?php if ($clients_form) the_form_feedback($clients_form); ?>
+
+            <?php the_managers(); ?>
+
+            <?php $page_contacts_walk = get_field('page-contacts-imgs-walk'); ?>
+            <?php $page_contacts_auto = get_field('page-contacts-imgs-auto'); ?>
+            <?php if ($page_contacts_walk || $page_contacts_auto): ?>
+                <div class="b-page-contacts-imgs content-block">
+                    <div class="title-line title-line_blue"><span>Пункты приема и выдачи заказов</span></div>
+                    <div class="b-page-contacts-imgs__body">
+                        <?php if ($page_contacts_walk) the_slider_with_thumb($page_contacts_walk, 'Как пройти от м. Преображенская площадь'); ?>
+                        <?php if ($page_contacts_auto) the_slider_with_thumb($page_contacts_auto, 'Как проехать на автомобиле'); ?>
+                    </div>
+                </div>
+            <?php endif ?>            
+
+            <?php $page_contacts_lat = get_field('page-contacts-lat'); ?>
+            <?php $page_contacts_long = get_field('page-contacts-long'); ?>
+            <?php if ($page_contacts_lat && $page_contacts_long): ?>
+                <div class="b-page-contacts-map content-block">
+                    <div class="title-line title-line_blue"><span>Мы на Яндекс.карте</span></div>
+                    <div class="b-page-contacts-map__body"><div id="map"></div></div>
+                </div>
+            <?php endif; ?>
+            
+            <?php the_contact_form(); ?>
+
         </div>
     <?php endwhile ?>
 <?php endif; ?>

@@ -36,8 +36,9 @@ Template Post Type: page
                 <?php endforeach ?>
                 </div>
             <?php endif ?>
-            <?php $clients_form = get_field('contact-form'); ?>
-            <?php if ($clients_form) the_form_feedback($clients_form); ?>
+
+            <?php the_contact_form(); ?>
+            
         </div>
     <?php endwhile ?>
 <?php endif; ?>

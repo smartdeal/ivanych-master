@@ -185,6 +185,10 @@
     &__name {
         font-weight: 700;
         margin: 15px 0 5px;
+        span {
+            font-weight: 400;
+            margin-left: 5px;
+        }
     }
     &__email {
         @include icon-bundle-email-blue;
@@ -197,6 +201,108 @@
         }
         &::hover {
             text-decoration: none;
+        }
+    }
+}
+
+
+.b-numered-list-two {
+    ol {
+        margin: 40px 0;
+        font-size: 18px;
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        li {
+            padding-left: 30px;
+            position: relative;
+            margin-bottom: 15px;
+            &::before {
+                position: absolute;
+                left: 0;
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.b-text-blue {
+    background: $color1;
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+    border-radius: 10px;
+    padding: 25px;
+    line-height: 1.4;
+}
+
+.b-accord {
+    &__item {
+        border-bottom: 1px solid #f0f3f5;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            right: 8px;
+            top: 10px;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #282b38;
+            border-left: 0;
+            border-bottom: 0;
+            transform: rotate(135deg);
+            z-index: -1;
+            transition: all .5s 0s;
+        }
+        &.opened {
+            &:after {
+                border-color: $color1;
+                transform: rotate(45deg) scaleX(-1);
+                top: 25px;
+            }
+            .b-accord__desc__title {
+                color: $color1;
+            }
+        }
+    }
+    &__title {
+        display: block;
+        font-size: 18px;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 20px 0;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    &__desc {
+        display: none;
+        br {
+            line-height: 1.5;
+        }
+    }
+    .tablepress {
+        th,
+        td {
+            font-size: 16px;
+            text-align: center;
+        }
+        th {
+            font-weight: 700;
+            background: #f0f3f5;
+            span {
+                font-weight: 300;
+            }
+        }
+        td {
+            font-weight: 300;
+            &.column-1 {
+                font-weight: 700;
+            }
+        }
+        .odd td {
+            background: #f0f3f5;
+
         }
     }
 }

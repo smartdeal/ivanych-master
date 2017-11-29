@@ -23,13 +23,13 @@ Template Post Type: page
                     </div>
                 </div>
             <?php endif ?>
-            <?php $worth = get_field('about-worth-items'); ?>
-            <?php if ($worth): ?>
-                <div class="b-about-worth content-block">
+            <?php $bullets = get_field('bullet-items'); ?>
+            <?php if ($bullets): ?>
+                <div class="b-bullet b-bullet_about content-block">
                     <div class="title-line"><span>Наши ценности и приоритеты</span></div>
-                    <div class="b-about-worth__body">
+                    <div class="b-bullet__body">
                         <div class="b-bullet__items js-slick js-about-worth">
-                            <?php foreach ($worth as $key => $value): ?>
+                            <?php foreach ($bullets as $key => $value): ?>
                                 <div class="b-bullet__item b-bullet__item_<?php echo $key+1 ?>">
                                     <div class="b-bullet__caption js-bullet-caption"><span><?php echo $value['caption'] ?></span></div>
                                     <div class="b-bullet__img-wrap">
@@ -45,8 +45,33 @@ Template Post Type: page
             <div class="content__body">
                 <div class="content__txt content__txt_bg-grey" itemprop="articleBody"><?php the_content(); ?></div>
             </div>
+            
             <?php the_managers(); ?>
-            <?php the_our_production(); ?>
+            
+            <?php
+                $production_imgs = get_field('production-imgs',159); 
+                $production_items = get_field('production-items',159);
+            ?>
+            <?php if ($production_imgs || $production_items): ?>
+                <div class="b-our-production content-block">
+                    <div class="title-line title-line_blue"><span>Наше производство</span></div>
+                    <div class="b-our-production__body">
+                        <?php if ($production_imgs): ?>
+                            <?php the_slider_with_thumb($production_imgs); ?>
+                        <?php endif; ?>
+                        <?php if (is_array($production_items)): ?>
+                            <div class="b-numered-list-two">
+                                <ol>
+                                    <?php foreach ($production_items as $key => $value): ?>
+                                        <li><?php echo $value['item'] ?></li>
+                                    <?php endforeach; ?>
+                                </ol>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+            <?php endif; ?>
+
             <?php $cooperation = get_field('about-cooperation-txt'); ?>
             <?php if ($cooperation): ?>
                 <div class="b-about-cooperation content-block">

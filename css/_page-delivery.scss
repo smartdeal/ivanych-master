@@ -1,0 +1,89 @@
+.b-bullet_delivery {
+    .b-bullet {
+        &__item {
+            @include mn768 {
+                width: 33.33%;
+            }
+        }
+        &__item_1 .b-bullet__img {
+            width: 73px;
+            height: 73px;
+            background-position: -400px -64px;
+        }
+        &__item_2 .b-bullet__img {
+            width: 66px;
+            height: 66px;
+            background-position: -476px -67px;
+        }
+        &__item_3 .b-bullet__img {
+            width: 77px;
+            height: 77px;
+            background-position: -544px -61px;
+        }
+    }
+}
+
+.b-delivery-services {
+    margin: 50px 0;
+    &__items {
+        font-size: 0;
+    }
+    &__item {
+        border-bottom: 1px solid $color1;
+        padding: 20px 0;
+        @include mn768 {
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+        &:nth-child(odd) {
+            @include mn768 {
+                border-right: 1px solid $color1;
+            }
+        }
+        &:nth-last-child(-n+2) {
+            @include mn768 {
+                border-bottom: none;
+            }
+        }
+    }
+    &__img {
+        display: inline-block;
+        vertical-align: middle;
+        width: 50%;
+        padding: 0 5%;
+    }
+    &__desc {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 1.4;
+        font-size: 18px;
+        width: 50%;
+        overflow: hidden;
+    }
+    &__name {
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    &__tel {
+        font-weight: 300;
+    }
+    &__link {
+        display: block;
+        color: $color1;
+        text-decoration: underline;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+.b-benefits {
+    margin: 50px 0;
+}

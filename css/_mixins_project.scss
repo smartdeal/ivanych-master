@@ -98,7 +98,7 @@
         margin-top: -12px;
         margin-left: -12px;
     }
-    &:hover{
+    &:hover {
         &::before,
         &::after {
             opacity: 1;
@@ -123,5 +123,160 @@
     @include arrow-prev;
     &::before {
         background-position: -44px -36px;
+    }
+}
+
+@mixin icon-circle-66x66 {
+    width: 66px;
+    height: 66px;
+    background-color: #0087d8;
+    background-image: linear-gradient(135deg, #0f6aa7 0%, #0087d8 100%);
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.icon-bank {
+    &::before {
+        content: '';
+        display: block;
+        width: 38px;
+        height: 34px;
+        background: url(../img/icons-bundle.png) no-repeat;
+        background-position: -319px -142px;
+        position: relative;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+    }
+}
+
+.icon-notebook {
+    @extend .icon-bank;
+    &::before {
+        background-position: -321px -176px;
+    }
+}
+
+.icon-cash {
+    @extend .icon-bank;
+    &::before {
+        background-position: -324px -210px;
+    }
+}
+
+.icon-cell {
+    @extend .icon-bank;
+    &::before {
+        background-position: -360px -142px;
+    }
+}
+
+.icon-build {
+    @extend .icon-bank;
+    &::before {
+        background-position: -359px -178px;
+    }
+}
+
+.icon-document {
+    @extend .icon-bank;
+    &::before {
+        background-position: -363px -210px;
+    }
+}
+
+.icon-small-pay {
+    @extend .icon-bank;
+    &::before {
+        width: 30px;
+        height: 23px;
+    }
+}
+
+.icon-visa {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -451px -139px;
+    }
+}
+
+.icon-mastercard {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -450px -170px;
+    }
+}
+
+.icon-maestro {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -450px -199px;
+    }
+}
+
+.icon-ym {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -478px -143px;
+    }
+}
+
+.icon-webmoney {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -478px -177px;
+    }
+}
+
+.icon-beeline {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -398px -142px;
+    }
+}
+
+.icon-megafon {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -398px -174px;
+    }
+}
+
+.icon-mts {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -401px -202px;
+        width: 23px;
+    }
+}
+
+.icon-sber {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -422px -141px;
+    }
+}
+
+.icon-alfa {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -422px -171px;
+    }
+}
+
+.icon-masterpass {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -422px -198px;
+    }
+}
+
+.icon-promsv {
+    @extend .icon-small-pay;
+    &::before {
+        background-position: -421px -229px;
     }
 }

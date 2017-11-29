@@ -22,6 +22,7 @@ $(document).ready(function() {
             slider_managers_init();
             slider_footer_news_init();
             slider_our_production_init();
+            slider_pay_init();
         });        
         $(window).on('resize orientationchange', function() {
               $('.js-slick').slick('resize');
@@ -41,6 +42,46 @@ $(document).ready(function() {
         event.preventDefault();
         $('.js-header-menu').slideToggle();
     });
+    
+    $('.js-accord-item').click(function(event) {
+        event.preventDefault();
+        $(this).closest('.b-accord__item')
+                    .toggleClass('opened')
+                    .find('.b-accord__desc').slideToggle();
+    });
+    
+    $('.wsp-pages-title').wrapInner('<span></span>');
+
+    if ($('#map').length){
+        ymaps.ready(function () {
+            var myMap = new ymaps.Map('map', {
+                    center: [map_vars.lat, map_vars.long],
+                    zoom: 16
+                }, {
+                    searchControlProvider: 'yandex#search'
+                }),
+
+                // Создаём макет содержимого.
+                MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                ),
+
+                myPlacemarkWithContent = new ymaps.Placemark([map_vars.lat, map_vars.long], {
+                    balloonContent: map_vars.adr,
+                    // iconContent: '12'
+                }, {
+                    iconLayout: 'default#imageWithContent',
+                    iconImageHref: map_vars.template_directory+'/img/icon-location.png',
+                    iconImageSize: [68, 102],
+                    iconImageOffset: [-30, -105],
+                    iconContentOffset: [15, 15],
+                    iconContentLayout: MyIconContentLayout
+                });
+
+            myMap.geoObjects
+                .add(myPlacemarkWithContent);
+        });
+    }
 
 
     // $(".wpcf7").on('wpcf7mailsent', function(event){
@@ -186,32 +227,36 @@ function slider_about_worth_init() {
 }
 
 function slider_our_production_init() {
-    if ($('.js-slider-production').length) {
-        $('.js-slider-production')
-            .on('init', function(event, slick){
-                $(this).addClass('is_showed');
-            })
-            .slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                arrows: true,
-                adaptiveHeight: false,
-                asNavFor: '.js-slider-production-thumb'
-            });
+    if ($('.js-slider-big').length) {
+        $('.js-slider-big').each(function(index, el) {
+            $('.js-slider-big-'+index)
+                .on('init', function(event, slick){
+                    $(this).addClass('is_showed');
+                })
+                .slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    arrows: true,
+                    adaptiveHeight: false,
+                    asNavFor: '.js-slider-big-thumb-'+index
+                });
+        });
     }
-    if ($('.js-slider-production-thumb').length) {
-        $('.js-slider-production-thumb')
-            .on('init', function(event, slick){
-                $(this).addClass('is_showed');
-            })
-            .slick({
-                slidesToShow: 7,
-                slidesToScroll: 1,
-                asNavFor: '.js-slider-production',
-                arrows: false,
-                centerMode: true,
-                focusOnSelect: true
-            });
+    if ($('.js-slider-big-thumb').length) {
+        $('.js-slider-big-thumb').each(function(index, el) {
+            $('.js-slider-big-thumb-'+index)
+                .on('init', function(event, slick){
+                    $(this).addClass('is_showed');
+                })
+                .slick({
+                    slidesToShow: 7,
+                    slidesToScroll: 1,
+                    asNavFor: '.js-slider-big-'+index,
+                    arrows: false,
+                    centerMode: true,
+                    focusOnSelect: true
+                });
+        });
     }
 }
 
@@ -249,6 +294,33 @@ function slider_managers_init() {
                             slidesToShow: 1,
                         }
                     }
+                  ]
+            });
+    }
+}
+
+function slider_pay_init() {
+    if ($('.js-slider-pay').length) {
+        $('.js-slider-pay')
+            .on('init', function(event, slick){
+                $(this).addClass('is_showed');
+            })
+            .slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                infinite: true,
+                arrows: true,
+                responsive: [
+                    {
+                        breakpoint: 99999,
+                        settings: "unslick"
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1,
+                        }
+                    },
                   ]
             });
     }

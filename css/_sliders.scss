@@ -112,6 +112,14 @@
     opacity: 1;
 }
 
+.b-slider-with-thumb {
+    &__title {
+        margin: 30px 0;
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+
 .b-slider-big {
     &__img {
         background: url('') center no-repeat;

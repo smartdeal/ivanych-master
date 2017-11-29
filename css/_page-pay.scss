@@ -1,0 +1,53 @@
+.b-pay {
+    &__items {
+        font-size: 0;
+    }
+    &__item {
+        margin-bottom: 30px;
+        @include mn768 {
+            width: 50%;
+            display: inline-block;
+            vertical-align: top;
+            padding-right: 30px;
+        }
+    }
+    &__inner {
+        max-width: 300px;
+        margin: 0 auto;
+        @include mn768 {
+            max-width: none;
+        }
+    }
+    &__icon {
+        @include icon-circle-66x66;
+        margin-right: 14px;
+    }
+    &__caption {
+        width: calc(100% - 80px);
+        color: #0087d8;
+        font-size: 20px;
+        font-weight: 700;
+        display: inline-block;
+        vertical-align: middle;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    &-desc {
+        margin-left: 80px;
+        &__icon {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 10px;
+            width: 30px;
+            height: 23px;
+        }
+        &__caption {
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.5;
+            width: calc(100% - 30px - 10px);
+            font-size: 18px;
+        }
+    }
+}

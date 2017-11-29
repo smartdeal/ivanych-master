@@ -1,0 +1,62 @@
+@charset "UTF-8";
+.wsp-pages-title,
+.wsp-posts-title {
+    @extend .title-line;
+}
+
+.wsp-container {
+    li {
+        font-size: 16px;
+        font-weight: 300;
+        color: $color1;
+    }
+    a {
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+    ul ul {
+        padding-left: 1em;
+    }
+}
+
+.b-accord_price {
+    .b-accord__title {
+        @include mn768 {
+            font-size: 20px;
+            padding: 25px 0;
+        }
+    }
+    .b-accord__item {
+        &::before {
+            content: 'Подробнее';
+            position: absolute;
+            right: 0;
+            top: 10px;
+            height: 44px;
+            line-height: 44px;
+            background-color: #0087d8;
+            background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
+            border-radius: 22px;
+            box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+            padding: 0 40px 0 20px;
+            color: white;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            z-index: -1;
+        }
+        &::after {
+            border-color: white;
+            width: 7px;
+            height: 7px;
+            top: 25px;
+            right: 20px;
+        }
+        &.opened::after {
+            border-color: white;
+            top: 29px;
+        }
+    }
+}
