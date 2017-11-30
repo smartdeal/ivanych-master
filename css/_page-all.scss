@@ -20,8 +20,14 @@ body {
         overflow: hidden;
     }
 }
+
 .content {
-    h1,h2,h3,h4,h5,h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-weight: 700;
     }
     h3 {
@@ -52,31 +58,38 @@ body {
         margin-right: 1em;
         margin-bottom: 1em;
     }
-    ul,ol {
+    ul,
+    ol {
         margin: 1em 0;
     }
     ol {
         counter-reset: list 0;
     }
+    li {
+        padding-left: 15px;
+        position: relative;
+        margin-bottom: 10px;
+        &::before {
+            color: $color1;
+            position: absolute;
+            left: -6px;
+        }
+    }
     ul li::before {
         content: '\2022';
-        padding-right: .5em;
-        color: $color1;
     }
     ol li::before {
         counter-increment: list;
         content: counter(list) ".";
-        padding-right: .5em;
-        color: $color1;
     }
     &__txt {
         font-size: 18px;
-        &_bg-grey{
+        &_bg-grey {
             background: #f0f3f5;
             padding: 25px;
-            border-radius: 10px;            
+            border-radius: 10px;
         }
-    }    
+    }
 }
 
 .main-layout {
@@ -170,4 +183,19 @@ body {
             background-color: $color1;
         }
     }
+    &_black {
+        @extend .title-line;
+        color: black;
+        font-size: 24px;
+        @include mn768 {
+            font-size: 30px;
+        }
+        &:after {
+            background-color: black;
+        }
+    }
+}
+
+.tablepress-responsible {
+    overflow-x: auto;
 }

@@ -7,6 +7,12 @@
         }
     }
     .b-accord__item {
+        .b-accord__title {
+            padding-right: 50px;
+            @include mn768 {
+                padding-right: 150px;
+            }
+        }
         &::before {
             content: 'Подробнее';
             position: absolute;
@@ -18,14 +24,21 @@
             background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
             border-radius: 22px;
             box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
-            padding: 0 40px 0 20px;
             color: white;
             font-size: 12px;
             font-weight: 700;
             text-transform: uppercase;
+            overflow: hidden;
             z-index: -1;
-            min-width: 73px;
+            text-indent: -999em;
+            width: 48px;
+            padding: 0;
             text-align: center;
+            @include mn768 {
+                text-indent: 0;
+                width: 80px;
+                padding: 0 40px 0 20px;
+            }
         }
         &::after {
             border-color: white;

@@ -20,6 +20,15 @@
     }
 }
 
+@mixin icon-social-vk {
+    @include icons-bundle;
+    &::after {
+        width: 22px;
+        height: 13px;
+        background-position: -401px 0px;
+    }
+}
+
 @mixin icon-bundle-email-blue {
     @include icons-bundle;
     &::after {
@@ -126,6 +135,14 @@
     }
 }
 
+@mixin link-blue {
+    color: $color1;
+    text-decoration: underline;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
 @mixin icon-circle-66x66 {
     width: 66px;
     height: 66px;
@@ -134,6 +151,20 @@
     border-radius: 50%;
     display: inline-block;
     vertical-align: middle;
+}
+
+.hlp-vertical-middle {
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    &::after {
+        content: '';
+        width: 0;
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+    }
 }
 
 .icon-bank {
@@ -278,5 +309,87 @@
     @extend .icon-small-pay;
     &::before {
         background-position: -421px -229px;
+    }
+}
+
+.icon-term-price {
+    @extend .icon-bank;
+    &::before {
+        background-image: url(../img/icons-bundle-terms.png);
+        width: 104px;
+        height: 104px;
+        background-position: 0 0;
+    }
+}
+
+.icon-term-tz {
+    @extend .icon-term-price;
+    &::before {
+        width: 83px;
+        height: 83px;
+        background-position: -104px -110px;
+    }
+}
+
+.icon-term-maket {
+    @extend .icon-term-price;
+    &::before {
+        width: 97px;
+        height: 97px;
+        background-position: -113px 0;
+    }
+}
+
+.icon-term-pay {
+    @extend .icon-term-price;
+    &::before {
+        width: 95px;
+        height: 95px;
+        background-position: -323px -110px;
+    }
+}
+
+.icon-term-time {
+    @extend .icon-term-price;
+    &::before {
+        width: 102px;
+        height: 102px;
+        background-position: -218px 0;
+    }
+}
+
+.icon-term-shipment {
+    @extend .icon-term-price;
+    &::before {
+        width: 120px;
+        height: 82px;
+        background-position: -195px -110px;
+    }
+}
+
+.icon-term-delivery {
+    @extend .icon-term-price;
+    &::before {
+        width: 120px;
+        height: 74px;
+        background-position: -328px 0;
+    }
+}
+
+.icon-term-feedback {
+    @extend .icon-term-price;
+    &::before {
+        width: 97px;
+        height: 97px;
+        background-position: 0 -110px;
+    }
+}
+
+.icon-term-handling {
+    @extend .icon-term-price;
+    &::before {
+        width: 100px;
+        height: 112px;
+        background-position: -450px 0;
     }
 }

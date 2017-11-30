@@ -1,0 +1,70 @@
+.b-terms {
+    &__title {
+        margin-bottom: 30px;
+    }
+    &__item {
+        margin: 30px 0;
+    }
+    &__desc {
+        font-size: 0;
+    }
+    &__icon {
+        display: none;
+        width: 217px;
+        height: 217px;
+        border-radius: 50%;
+        @include mn768 {
+            display: inline-block;
+            vertical-align: top;
+        }
+        &_blue {
+            background-color: #0185d5;
+            background-image: linear-gradient(135deg, #0f6aa7 0%, #0087d8 100%);
+        }
+        &_yellow {
+            background-color: #ffce47;
+            box-shadow: 0 10px 20px rgba(100, 73, 0, 0.2);
+        }
+    }
+    &__txt {
+        font-size: 18px;
+        font-weight: 300;
+        @include mn768 {
+            font-size: 18px;
+            font-weight: 300;
+            width: calc(100% - 217px);
+            display: inline-block;
+            vertical-align: top;
+            padding-left: 30px;
+        }
+        a {
+            @include link-blue;
+        }
+        ul {
+            margin: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        p {
+        	margin-bottom: 10px;
+        }
+    }
+}
+
+#tablepress-2 {
+	td {
+		text-align: center;
+		&.column-1 {
+			text-align: left;
+		}
+	}
+    .odd td {
+        background-color: transparent;
+    }
+    .even td {
+        background: #f0f3f5;
+        border: 0;
+        font-weight: 700;
+    }
+}

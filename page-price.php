@@ -25,7 +25,12 @@ Template Post Type: page
                     <div class="b-accord__items">
                         <?php foreach ($price as $key => $value): ?>
                             <div class="b-accord__item">
-                                <a class="b-accord__title js-accord-item" href="#"><?php echo $value['caption'] ?></a>
+                                <div class="b-accord__header">
+                                    <div class="b-accord__title"><?php echo $value['caption'] ?></div>
+                                    <div class="b-accord__title-btns">
+                                        <a href="#" class="btn-accordeon-more js-btn-accordeon-more"></a>
+                                    </div>                                
+                                </div>
                                 <div class="b-accord__desc"><?php echo $value['table'] ?></div>
                             </div>
                         <?php endforeach; ?>

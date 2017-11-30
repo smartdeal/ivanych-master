@@ -14,14 +14,17 @@ Template Post Type: page
                 <h1 itemprop="headline"><?php the_custom_title(); ?></h1>
             </div>    
 
-            <?php $price = get_field('price'); ?>
-            <?php if ($price && is_array($price)): ?>
-                <div class="b-accord b-accord_price content-block">
-                    <div class="b-accord__items">
-                        <?php foreach ($price as $key => $value): ?>
-                            <div class="b-accord__item">
-                                <a class="b-accord__title js-accord-item" href="#"><?php echo $value['caption'] ?></a>
-                                <div class="b-accord__desc"><?php echo $value['table'] ?></div>
+            <?php $terms = get_field('terms'); ?>
+            <?php if ($terms && is_array($terms)): ?>
+                <div class="b-terms content-block">
+                    <div class="b-terms__items">
+                        <?php foreach ($terms as $key => $value): ?>
+                            <div class="b-terms__item">
+                                <a class="b-terms__title title-line<?php echo ($key%2 == 0)? '_blue': '_black' ?>" href="#"><span><?php echo $value['caption'] ?></span></a>
+                                <div class="b-terms__desc">
+                                    <div class="b-terms__icon b-terms__icon<?php echo ($key%2 == 0)? '_blue': '_yellow' ?> <?php echo $value['icon'] ?>"></div>
+                                    <div class="b-terms__txt"><?php echo $value['text'] ?></div>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>

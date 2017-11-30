@@ -187,8 +187,8 @@ function the_slider_with_thumb($imgs, $title = ''){
     endif;
 }
 
-function the_form_feedback($id = 0) {
-    $out = '<div class="b-form b-form_feedback">';
+function the_form_func($id = 0) {
+    $out = '<div class="b-form">';
     $out .= '<div class="b-form__title title-line title-line_blue"><span>'.get_the_title($id).'</span></div>';
     $out .= do_shortcode( '[contact-form-7 id="'.$id.'"]' );
     $out .= '</div>';
@@ -198,5 +198,15 @@ function the_form_feedback($id = 0) {
 
 function the_contact_form() {
     $clients_form = get_field('contact-form'); 
-    if ($clients_form) the_form_feedback($clients_form);
+    if ($clients_form) the_form_func($clients_form);
+}
+
+function the_contact_form_vacancy() {
+    $clients_form = get_field('contact-form'); 
+    if ($clients_form) {
+        $out = '<div class="b-form b-form_vacancy">';
+        $out .= do_shortcode( '[contact-form-7 id="'.$clients_form.'"]' );
+        $out .= '</div>';
+        echo $out;
+    }
 }
