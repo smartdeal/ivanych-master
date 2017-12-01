@@ -79,6 +79,18 @@ jQuery(function($) {
                 scrollTop: $(elem).offset().top-50
             }, 1000);
         });
+        
+        $(".js-btn-vacancy").click(function() {
+            event.preventDefault();
+            var $form = $(this).closest('.b-accord__item');
+            var $elem_form = $form.find('.b-form');
+            if (!$form.hasClass('opened')) {
+                $form.find('.js-btn-accordeon-more').trigger('click');
+            }
+            $('html, body').animate({
+                scrollTop: $elem_form.offset().top
+            }, 1000);            
+        });
 
         if ($('#map').length) {
             ymaps.ready(function() {
