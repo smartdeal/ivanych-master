@@ -30,9 +30,8 @@ function ivanych_scripts() {
 	        if ($page_contacts_lat && $page_contacts_long){
 	            $page_contacts_lat = str_replace(',', '.', $page_contacts_lat);
 	            $page_contacts_long = str_replace(',', '.', $page_contacts_long);
-		        wp_enqueue_script( 'ivanych-js-map', '//api-maps.yandex.ru/2.1/?lang=ru_RU', array('jquery', 'ivanych-js-main'), '20171130', true );
 	            wp_localize_script(
-				    'ivanych-js-map',
+				    'ivanych-js-main',
 				    'map_vars',
 				    array(
 				    	'lat' => $page_contacts_lat,

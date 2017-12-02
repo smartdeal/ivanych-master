@@ -36,6 +36,7 @@ body {
     p {
         font-size: inherit;
         font-weight: inherit;
+        margin-bottom: .5em;
     }
     &__inner {
         margin-top: 30px;
@@ -89,6 +90,12 @@ body {
             padding: 25px;
             border-radius: 10px;
         }
+    }
+    blockquote {
+        background: $color2;
+        margin: 20px 0;
+        padding: 20px 30px;
+        border-radius: 10px;
     }
 }
 
@@ -146,6 +153,14 @@ body {
 .content-block {
     margin: 30px 0;
     font-size: 18px;
+    &__title {
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: .5em;
+        @include mn768 {
+            font-size: 30px;
+        }
+    }
 }
 
 .title-line {

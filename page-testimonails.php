@@ -18,12 +18,12 @@ Template Post Type: page
 
             <?php $testimonails = get_field('imgs'); ?>
             <?php if ($testimonails): ?>
-                <div class="b-testimonails-imgs content-block">
-                    <div class="b-testimonails-imgs__title title-line"><span>Наши благодарственные письма</span></div>
-                    <div class="b-testimonails-imgs__items js-slick js-slider-testimonails">
+                <div class="b-gallery-imgs content-block">
+                    <div class="b-gallery-imgs__title title-line"><span>Наши благодарственные письма</span></div>
+                    <div class="b-gallery-imgs__items js-slick js-slider-testimonails">
                         <?php foreach ($testimonails as $key => $value): ?>
-                            <div class="b-testimonails-imgs__item js-magnific-popup">
-                                <a href="<?php echo $value['sizes']['large'] ?>" class="b-testimonails-imgs__img" data-aload style="background-image:url(<?php echo $value['sizes']['medium'] ?>)"></a>
+                            <div class="b-gallery-imgs__item js-magnific-popup">
+                                <a href="<?php echo $value['sizes']['large'] ?>" class="b-gallery-imgs__img" data-aload style="background-image:url(<?php echo $value['sizes']['medium'] ?>)"></a>
                             </div>
                         <?php endforeach ?>
                     </div>

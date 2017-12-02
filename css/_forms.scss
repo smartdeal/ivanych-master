@@ -40,7 +40,10 @@ input {
 .wpcf7 {
     position: relative;
     .wpcf7-not-valid-tip {
-        display: none !important;
+        display: none;
+    }
+    input[type="file"]+.wpcf7-not-valid-tip {
+        display: block;
     }
     .wpcf7-not-valid {
         border-color: red !important;
@@ -84,10 +87,14 @@ input {
             padding: 20px 60px;
         }
     }
+    &__field_file,
     label {
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 700;
         display: block;
+        @include mn768 {
+            font-size: 20px;
+        }
     }
     input[type=radio] {
         display: inline-block;
@@ -106,6 +113,9 @@ input {
         margin: 0 0 10px;
     }
     .wpcf7-radio {
+        .wpcf7-list-item {
+            white-space: nowrap;
+        }
         .wpcf7-list-item-label {
             position: relative;
             font-size: 18px;
@@ -113,6 +123,7 @@ input {
             padding: 0 20px 0 10px;
             display: inline-block;
             vertical-align: middle;
+            white-space: normal;
             &::before {
                 position: absolute;
                 content: '';
@@ -144,6 +155,7 @@ input {
     }
     &__field {
         margin-bottom: 20px;
+        font-size: 18px;
         &_name {}
         &_msg {
             @include mn768 {
@@ -397,6 +409,59 @@ input {
             &:after {
                 left: -35px;
             }
+        }
+    }
+}
+
+.b-form_service {
+    .b-form {
+        &__body {
+            background: $color2;
+            padding: 20px;
+            @include mn768 {
+                padding: 30px;
+            }
+        }
+        &__fields {
+            font-size: 0;
+        }
+        &__field {
+            &_name,
+            &_tel,
+            &_email,
+            &_circulation {
+                @include mn768 {
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 50%;
+                    padding-right: 30px;
+                }
+            }
+        }
+    }
+    .wpcf7-form-control-wrap {
+        &.time {
+            @include mn768 {
+                width: calc(50% - 30px);
+            }
+        }
+    }
+    .wpcf7-radio .wpcf7-list-item {
+        width: 100%;
+    }
+    .wpcf7-submit {
+        background: $color1;
+        background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
+        box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+        color: white;
+        font-size: 12px;
+        padding: 20px;
+        margin: 20px auto 0;
+        display: block;
+        @include mn768 {
+            font-size: 16px;
+            padding: 20px 70px;
+            margin-left: 0;
         }
     }
 }

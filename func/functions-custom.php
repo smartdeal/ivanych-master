@@ -210,3 +210,29 @@ function the_contact_form_vacancy() {
         echo $out;
     }
 }
+
+function the_relative($post_type = 'post' , $num = 4) {
+    $out = '';
+    $arg =  array(
+        'posts_per_page' => $num,
+        'post_type' => $post_type,
+        'post_status' => 'publish',
+    );
+    $query = new WP_Query($arg);
+    if ($query->have_posts() ):
+        $out .= '<div class="b-grid__items">';
+        while ( $query->have_posts() ): 
+            $query->the_post();    
+            $out .= '<div class="b-grid-item"><a class="b-grid-item__link" href="'.get_the_permalink().'" title="'.get_the_title().'">';
+            $out .= '<div class="b-grid-item__inner">';
+            if (has_post_thumbnail()) $img_src = wp_get_attachment_image_url(get_post_thumbnail_id(),'medium');
+                else $img_src = get_template_directory_uri().'/img/placeholder.jpg';
+            $out .= '<div class="b-grid-item__img" style="background-image:url('.$img_src.');"></div>';
+            $out .= '<div class="b-grid-item__caption">'.get_the_title().'</div><div class="b-grid-item__btn btn_c2" href="#">Подробнее</div>';
+            $out .= '</div>';
+            $out .= '</a></div>';
+        endwhile;
+        $out .= '</div>';
+    endif;    
+    echo $out;
+}

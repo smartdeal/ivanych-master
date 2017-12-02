@@ -6,30 +6,28 @@
 add_action( 'init', 'custom_post_type', 0 );
 function custom_post_type() {
 
-
-
     $labels = array(
-        'name'                => _x( 'Полезное', 'Post Type General Name', 'ivanych' ),
-        'singular_name'       => _x( 'Полезное', 'Post Type Singular Name', 'ivanych' ),
-        'menu_name'           => __( 'Полезное', 'ivanych' ),
-        'parent_item_colon'   => __( 'Родит. Статья', 'ivanych' ),
-        'all_items'           => __( 'Все Статьи', 'ivanych' ),
-        'view_item'           => __( 'Смотреть Статью', 'ivanych' ),
-        'add_new_item'        => __( 'Добавить новую Статью', 'ivanych' ),
+        'name'                => _x( 'Услуги', 'Post Type General Name', 'ivanych' ),
+        'singular_name'       => _x( 'Услуга', 'Post Type Singular Name', 'ivanych' ),
+        'menu_name'           => __( 'Услуги', 'ivanych' ),
+        'parent_item_colon'   => __( 'Родит. Услуга', 'ivanych' ),
+        'all_items'           => __( 'Все Услуги', 'ivanych' ),
+        'view_item'           => __( 'Смотреть Услугу', 'ivanych' ),
+        'add_new_item'        => __( 'Добавить новую Услугу', 'ivanych' ),
         'add_new'             => __( 'Добавить новую', 'ivanych' ),
-        'edit_item'           => __( 'Редактировать Статью', 'ivanych' ),
-        'update_item'         => __( 'Обновить Статью', 'ivanych' ),
-        'search_items'        => __( 'Искать Статью', 'ivanych' ),
+        'edit_item'           => __( 'Редактировать Услугу', 'ivanych' ),
+        'update_item'         => __( 'Обновить Услугу', 'ivanych' ),
+        'search_items'        => __( 'Искать Услугу', 'ivanych' ),
         'not_found'           => __( 'Не найдено', 'ivanych' ),
         'not_found_in_trash'  => __( 'Не найдено в корзине', 'ivanych' ),
     );
 
     $args = array(
-        'label'               => __( 'Полезное', 'ivanych' ),
+        'label'               => __( 'Услуги', 'ivanych' ),
         'description'         => __( '', 'ivanych' ),
         'labels'              => $labels,
-        'supports'            => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'comments'),
-        'taxonomies'          => array('post_tag'),
+        'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions'),
+        'taxonomies'          => array(),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -44,7 +42,7 @@ function custom_post_type() {
         'capability_type'     => 'post',
     );
 
-    // register_post_type( 'stati', $args );
+    register_post_type( 'service', $args );
 
     $labels = array(
         'name'                => _x( 'Портфолио', 'Post Type General Name', 'ivanych' ),
@@ -122,8 +120,6 @@ function custom_post_type() {
 
     register_post_type( 'block', $args );
 
-
-    unregister_post_type( 'forms' );
 
     // register_taxonomy('race-type', array('team-ivanych'), array(
     //     'labels'                => array(

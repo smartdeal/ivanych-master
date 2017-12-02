@@ -25,6 +25,8 @@ jQuery(function($) {
                 slider_pay_init();
                 slider_testimonails_init();
                 slider_testimonails_vk_init();
+                slider_service_examples_init();
+                slider_interaction_init();
             });
             $(window).on('resize orientationchange', function() {
                 $('.js-slick').slick('resize');
@@ -69,6 +71,17 @@ jQuery(function($) {
                 .find('.b-accord__desc').slideToggle();
         });
 
+
+        $('.js-btn-content-more').click(function(event) {
+            event.preventDefault();
+            var $parent = $(this).closest('.b-content-more');
+            var datatxt = $(this).data('text');
+            var txt = $(this).text();
+            $(this).text(datatxt).data('text',txt);
+            $parent.toggleClass('opened');
+        });
+
+
         $('.wsp-pages-title').wrapInner('<span></span>');
         $('.tablepress').wrap('<div class="tablepress-responsible"></div>');
 
@@ -93,33 +106,35 @@ jQuery(function($) {
         });
 
         if ($('#map').length) {
-            ymaps.ready(function() {
-                var myMap = new ymaps.Map('map', {
-                        center: [map_vars.lat, map_vars.long],
-                        zoom: 16
-                    }, {
-                        searchControlProvider: 'yandex#search'
-                    }),
+            $.loadScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', function() {
+                ymaps.ready(function() {
+                    var myMap = new ymaps.Map('map', {
+                            center: [map_vars.lat, map_vars.long],
+                            zoom: 16
+                        }, {
+                            searchControlProvider: 'yandex#search'
+                        }),
 
-                    // Создаём макет содержимого.
-                    MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-                        '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-                    ),
+                        // Создаём макет содержимого.
+                        MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                            '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                        ),
 
-                    myPlacemarkWithContent = new ymaps.Placemark([map_vars.lat, map_vars.long], {
-                        balloonContent: map_vars.adr,
-                        // iconContent: '12'
-                    }, {
-                        iconLayout: 'default#imageWithContent',
-                        iconImageHref: map_vars.template_directory + '/img/icon-location.png',
-                        iconImageSize: [68, 102],
-                        iconImageOffset: [-30, -105],
-                        iconContentOffset: [15, 15],
-                        iconContentLayout: MyIconContentLayout
-                    });
+                        myPlacemarkWithContent = new ymaps.Placemark([map_vars.lat, map_vars.long], {
+                            balloonContent: map_vars.adr,
+                            // iconContent: '12'
+                        }, {
+                            iconLayout: 'default#imageWithContent',
+                            iconImageHref: map_vars.template_directory + '/img/icon-location.png',
+                            iconImageSize: [68, 102],
+                            iconImageOffset: [-30, -105],
+                            iconContentOffset: [15, 15],
+                            iconContentLayout: MyIconContentLayout
+                        });
 
-                myMap.geoObjects
-                    .add(myPlacemarkWithContent);
+                    myMap.geoObjects
+                        .add(myPlacemarkWithContent);
+                });
             });
         }
 
@@ -390,6 +405,58 @@ jQuery(function($) {
     function slider_testimonails_vk_init() {
         if ($('.js-slider-testimonails-vk').length) {
             $('.js-slider-testimonails-vk')
+                .on('init', function(event, slick) {
+                    $(this).addClass('is_showed');
+                })
+                .slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: true,
+                    responsive: [{
+                            breakpoint: 99999,
+                            settings: "unslick"
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        },
+                    ]
+                });
+        }
+    }
+
+    function slider_service_examples_init() {
+        if ($('.js-slider-service-examples').length) {
+            $('.js-slider-service-examples')
+                .on('init', function(event, slick) {
+                    $(this).addClass('is_showed');
+                })
+                .slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: true,
+                    responsive: [{
+                            breakpoint: 99999,
+                            settings: "unslick"
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        },
+                    ]
+                });
+        }
+    }
+
+    function slider_interaction_init() {
+        if ($('.js-slider-interaction').length) {
+            $('.js-slider-interaction')
                 .on('init', function(event, slick) {
                     $(this).addClass('is_showed');
                 })
