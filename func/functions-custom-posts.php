@@ -45,27 +45,27 @@ function custom_post_type() {
     register_post_type( 'service', $args );
 
     $labels = array(
-        'name'                => _x( 'Портфолио', 'Post Type General Name', 'ivanych' ),
-        'singular_name'       => _x( 'Портфолио', 'Post Type Singular Name', 'ivanych' ),
-        'menu_name'           => __( 'Портфолио', 'ivanych' ),
-        'parent_item_colon'   => __( 'Родит. Портфолио', 'ivanych' ),
-        'all_items'           => __( 'Все Портфолио', 'ivanych' ),
-        'view_item'           => __( 'Смотреть Портфолио', 'ivanych' ),
-        'add_new_item'        => __( 'Добавить новою Портфолио', 'ivanych' ),
-        'add_new'             => __( 'Добавить новою', 'ivanych' ),
-        'edit_item'           => __( 'Редактировать Портфолио', 'ivanych' ),
-        'update_item'         => __( 'Обновить Портфолио', 'ivanych' ),
-        'search_items'        => __( 'Искать Портфолио', 'ivanych' ),
+        'name'                => _x( 'Товары', 'Post Type General Name', 'ivanych' ),
+        'singular_name'       => _x( 'Товар', 'Post Type Singular Name', 'ivanych' ),
+        'menu_name'           => __( 'Товары', 'ivanych' ),
+        'parent_item_colon'   => __( 'Родит. Товар', 'ivanych' ),
+        'all_items'           => __( 'Все Товары', 'ivanych' ),
+        'view_item'           => __( 'Смотреть Товар', 'ivanych' ),
+        'add_new_item'        => __( 'Добавить новый Товар', 'ivanych' ),
+        'add_new'             => __( 'Добавить новый', 'ivanych' ),
+        'edit_item'           => __( 'Редактировать Товар', 'ivanych' ),
+        'update_item'         => __( 'Обновить Товар', 'ivanych' ),
+        'search_items'        => __( 'Искать Товар', 'ivanych' ),
         'not_found'           => __( 'Не найдено', 'ivanych' ),
         'not_found_in_trash'  => __( 'Не найдено в корзине', 'ivanych' ),
     );
 
     $args = array(
-        'label'               => __( 'Услуги', 'ivanych' ),
+        'label'               => __( 'Товары', 'ivanych' ),
         'description'         => __( '', 'ivanych' ),
         'labels'              => $labels,
         'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', ),
-        'taxonomies'          => array('post_tag'),
+        'taxonomies'          => array(),
         'hierarchical'        => false,
         'public'              => true,
         'show_ui'             => true,
@@ -77,10 +77,10 @@ function custom_post_type() {
         'has_archive'         => true,
         'exclude_from_search' => false,
         'publicly_queryable'  => true,
-        'capability_type'     => 'page',
+        'capability_type'     => 'post',
     );
 
-    // register_post_type( 'portfolio', $args );
+    register_post_type( 'product', $args );
 
     $labels = array(
         'name'                => _x( 'Контент-блоки', 'Post Type General Name', 'ivanych' ),

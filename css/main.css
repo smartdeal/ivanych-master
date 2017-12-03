@@ -1342,6 +1342,19 @@ input {
     .topmenu .menu-item:hover {
       color: #2b3338;
       background: #ffce47; }
+      .topmenu .menu-item:hover > .sub-menu {
+        display: block; }
+    .topmenu .menu-item > .sub-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 10px;
+      background: #ffce47; }
+      .topmenu .menu-item > .sub-menu > .menu-item {
+        padding-top: 10px;
+        padding-bottom: 10px; }
+        .topmenu .menu-item > .sub-menu > .menu-item:hover {
+          background: #ffbb00; }
   .topmenu a {
     text-decoration: none; }
     .topmenu a:hover {
@@ -2913,6 +2926,41 @@ body {
 .b-vacancy__body {
   padding: 20px; }
 
+.b-gallery-imgs_examples {
+  margin-bottom: 50px; }
+  @media (min-width: 768px) {
+    .b-gallery-imgs_examples .b-gallery-imgs__item {
+      width: 33.33%;
+      overflow: hidden;
+      max-height: 200px;
+      transition: max-height .5s 0s;
+      padding: 5px; }
+      .b-gallery-imgs_examples .b-gallery-imgs__item.is-hidden {
+        max-height: 0;
+        padding: 0; } }
+  .b-gallery-imgs_examples .b-gallery-imgs__img {
+    height: 170px;
+    background-size: contain; }
+
+.btn_imgs-more {
+  font-size: 12px;
+  position: relative;
+  padding: 15px 40px 15px 24px;
+  margin: 20px auto 0;
+  display: block; }
+  .btn_imgs-more::after {
+    content: '';
+    position: absolute;
+    border: 2px solid white;
+    border-left: 0;
+    border-bottom: 0;
+    transform: rotate(135deg);
+    transition: all .5s 0s;
+    width: 7px;
+    height: 7px;
+    top: 15px;
+    right: 20px; }
+
 @media (min-width: 768px) {
   .b-gallery-imgs_service .b-gallery-imgs__item {
     width: 33.33%; } }
@@ -3040,9 +3088,6 @@ body {
     width: 68px;
     height: 68px; }
 
-.footer {
-  margin-bottom: 500px; }
-
 .footer-news {
   margin: 30px 0; }
 
@@ -3066,5 +3111,18 @@ body {
     height: 0;
     padding-bottom: 70%;
     border-radius: 10px; }
+
+.footer-bottom {
+  background: #2b3338;
+  padding: 40px 0; }
+
+.footer-logo {
+  text-align: center; }
+  .footer-logo__txt {
+    opacity: 0.3;
+    color: #fff9f9;
+    font-size: 14px;
+    font-weight: 300;
+    margin-top: 30px; }
 
 /*# sourceMappingURL=main.css.map */

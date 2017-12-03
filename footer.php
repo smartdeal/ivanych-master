@@ -20,6 +20,14 @@
 			</div>
 		</div>
 	</div>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="footer-logo">
+				<img src="<?php echo get_template_directory_uri(); ?>/img/logo-footer.png" alt="" class="footer-logo_img">
+				<div class="footer-logo__txt">© 2017 Все права защищены</div>
+			</div>
+		</div>
+	</div>
 </div>
 <?php wp_footer(); ?>
 <?php the_field('option_code_bottom','option'); ?>

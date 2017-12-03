@@ -56,25 +56,16 @@
     <div class="header__menu-wrap">
         <div class="container">
             <div class="header__menu js-header-menu">
-                <ul class="topmenu">
-                    <li class="menu-item"><a href="#">ПромПечать</a></li>
-                    <li class="menu-item current-menu-item"><a href="#">Услуги печати</a></li>
-                    <li class="menu-item"><a href="#">Товары</a></li>
-                    <li class="menu-item"><a href="#">Прайс-лист</a></li>
-                    <li class="menu-item"><a href="#">Доставка</a></li>
-                    <li class="menu-item"><a href="#">Примеры работ</a></li>
-                    <li class="menu-item"><a href="#">Контакты</a></li>
-                </ul>
-                        <?php
-                            // wp_nav_menu( array(
-                            //     'theme_location'    => 'primary',
-                            //     'depth'             => 2,
-                            //     'container'         => 'div',
-                            //     'container_class'   => 'collapse navbar-collapse',
-                            //     'container_id'      => 'menu-collapse',
-                            //     'menu_class'        => 'nav navbar-nav',
-                            // );
-                        ?>
+                <?php
+                    wp_nav_menu( array(
+                        'theme_location'    => 'primary',
+                        'depth'             => 2,
+                        'container'         => 'ul',
+                        'menu_class'        => 'topmenu',
+                        'container_class'   => 'cont',
+                        'container_id'      => '',
+                    ));
+                ?>
             </div>
         </div>
     </div>

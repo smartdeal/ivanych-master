@@ -1,0 +1,43 @@
+.b-gallery-imgs_examples {
+    margin-bottom: 50px;
+    .b-gallery-imgs {
+        &__item {
+            @include mn768 {
+                width: 33.33%;
+                overflow: hidden;
+                max-height: 200px;
+                transition: max-height .5s 0s;
+                padding: 5px;
+                &.is-hidden {
+                    max-height: 0;
+                    padding: 0;
+                }
+            }
+        }
+        &__img {
+            height: 170px;
+            background-size: contain;
+        }
+    }
+}
+
+.btn_imgs-more {
+    font-size: 12px;
+    position: relative;
+    padding: 15px 40px 15px 24px;
+    margin: 20px auto 0;
+    display: block;
+    &::after {
+        content: '';
+        position: absolute;
+        border: 2px solid white;
+        border-left: 0;
+        border-bottom: 0;
+        transform: rotate(135deg);
+        transition: all .5s 0s;
+        width: 7px;
+        height: 7px;
+        top: 15px;
+        right: 20px;
+    }
+}

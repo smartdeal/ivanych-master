@@ -6,6 +6,24 @@ jQuery(function($) {
     function init() {
         window_width = $(window).width();
         window_height = $(window).height();
+
+        if ($('.js-imgs-more').length) {
+            if (window_width >= 768) {
+                if (!$('.js-imgs-more .btn_imgs-more').length) {
+                    $('.js-imgs-more').append('<button class="btn btn_imgs-more">Показать еще</button>');
+                    $('.js-imgs-more').on('click', '.btn_imgs-more', function(event) {
+                        event.preventDefault();
+                        $(this).closest('.js-imgs-more').find('.b-gallery-imgs__item').removeClass('is-hidden');
+                        $(this).remove();
+                    });
+                }
+                $('.js-imgs-more').find('.b-gallery-imgs__item:gt(8)').addClass('is-hidden');
+            } else {
+                $('.js-imgs-more .btn_imgs-more').remove();
+                $('.js-imgs-more .b-gallery-imgs__item').removeClass('is-hidden');
+            }
+
+        }        
     }
 
     $(document).ready(function() {
@@ -104,6 +122,7 @@ jQuery(function($) {
                 scrollTop: $elem_form.offset().top
             }, 1000);            
         });
+
 
         if ($('#map').length) {
             $.loadScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', function() {
