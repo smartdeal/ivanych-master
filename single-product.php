@@ -6,7 +6,7 @@ if (have_posts()):
     while (have_posts()): the_post();
 ?>
 
-        <div class="content content_service" itemscope itemtype="http://schema.org/Article">
+        <div class="content content_product" itemscope itemtype="http://schema.org/Article">
             <div class="content__title">
                 <h1 itemprop="headline"><?php the_custom_title(); ?></h1>
             </div>    
@@ -15,7 +15,7 @@ if (have_posts()):
         if ( '1' === get_field('page_template')): // Catalog or Single service
             get_template_part( 'inc/inc-services-tpl-catalog' );
         else:
-            get_template_part( 'inc/inc-services-tpl-single' );
+            get_template_part( 'inc/inc-product-tpl-single' );
         endif;
 
         get_template_part( 'inc/inc-services-schema' );

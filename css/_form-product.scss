@@ -1,0 +1,284 @@
+@charset "UTF-8";
+
+$grid-space: 10px;
+
+
+.f-ui-form_product {
+    .f-img-wrap {
+        max-width: 330px;
+    }
+    .f-img {
+        @include image-search-hover;
+        height: 360px;
+        background: url('') center no-repeat;
+        background-size: contain;
+        transition: background .5s 0s;
+    }
+}
+
+.f-row {
+    @include cf;
+    margin: 0 (-1)*$grid-space;
+}
+
+.f-col {
+    float: left;
+    padding: 0 $grid-space;
+    position: relative;
+    min-height: 1px;
+    width: 100%;
+    &-sm-6 {
+        @media (min-width: 768px) {
+            width: 50%;
+        }
+    }
+}
+
+.f-ui-form {
+    .wpcf7-list-item {
+        display: block;
+        margin: 10px 0;
+        position: relative;
+    }
+    .f-label {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+    input[type="radio"] {
+        opacity: .5;
+    }
+    .ui-checkboxradio {
+        &-radio-label {
+            display: block;
+            &.ui-state-active .ui-checkboxradio-icon:before {
+                position: absolute;
+                content: '';
+                width: 15px;
+                height: 15px;
+                background-color: #0187d8;
+                border-radius: 50%;
+                left: 5px;
+                top: 5px;
+                border: 1px solid white;
+            }
+            input {
+                display: none;
+            }
+        }
+        &-icon {
+            display: inline-block;
+            vertical-align: middle;
+            width: 29px;
+            height: 29px;
+            background-color: white;
+            border: 1px solid #dadada;
+            border-radius: 15px;
+            position: relative;
+        }
+    }
+}
+
+.f-price {
+    margin-bottom: 30px;
+}
+
+.f-price-radio {
+    .wpcf7-label-info {
+        &::after {
+            content: 'i';
+            display: inline-block;
+            background-color: #dde0e5;
+            background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
+            border-radius: 9px;
+            color: white;
+            margin-left: 10px;
+            text-align: center;
+            line-height: 18px;
+            padding: 1px 8px;
+        }
+    }
+    .wpcf7-list-item-label {
+        position: relative;
+    }
+    .wpcf7-label-ballon {
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity .5s 0s;
+        background-color: #fff;
+        box-shadow: 0 0 1px #b0acac, 0px 0px 6px #B2B2B2;
+        margin: 20px;
+        width: 200px;
+        z-index: 1;
+        position: absolute;
+        top: 20px;
+        right: -100px;
+        white-space: normal;
+        line-height: 1.3;
+        padding: 10px;
+        border: 1px solid $color1;
+        border-radius: 10px;
+        color: black;
+        text-align: center;
+        &::after {
+            background-color: #fff;
+            border: 1px solid $color1;
+            border-left: 0;
+            border-bottom: 0;
+            content: "\00a0";
+            display: block;
+            width: 14px;
+            height: 14px;
+            right: 50%;
+            margin-right: -17px;
+            position: absolute;
+            top: 2px;
+            margin-top: -10px;
+            transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -ms-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            -webkit-transform: rotate(-45deg);
+        }
+        &.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+    input {
+        display: none;
+    }
+}
+
+.f-color {
+    margin-bottom: 30px;
+}
+
+.f-color-radio {
+    max-width: 280px;
+    display: block;
+    .wpcf7-list-item {
+        display: inline-block;
+        vertical-align: middle;
+        width: 12.5%;
+        text-align: left;
+        margin: 0px;
+        padding: 3px;
+        &:nth-child(1) .ui-checkboxradio-icon {
+            background: #fff;
+        }
+        &:nth-child(2) .ui-checkboxradio-icon {
+            background: #278dcf;
+        }
+        &:nth-child(3) .ui-checkboxradio-icon {
+            background: #1c02f9;
+        }
+        &:nth-child(4) .ui-checkboxradio-icon {
+            background: #6b0707;
+        }
+        &:nth-child(5) .ui-checkboxradio-icon {
+            background: #c6a582;
+        }
+        &:nth-child(6) .ui-checkboxradio-icon {
+            background: #ffdd00;
+        }
+        &:nth-child(7) .ui-checkboxradio-icon {
+            background: #2a9400;
+        }
+        &:nth-child(8) .ui-checkboxradio-icon {
+            background: #fe0606;
+        }
+        &:nth-child(9) .ui-checkboxradio-icon {
+            background: #8e9458;
+        }
+        &:nth-child(10) .ui-checkboxradio-icon {
+            background: #fc6600;
+        }
+        &:nth-child(11) .ui-checkboxradio-icon {
+            background: #898e94;
+        }
+        &:nth-child(12) .ui-checkboxradio-icon {
+            background: #dbdbdb;
+        }
+        &:nth-child(13) .ui-checkboxradio-icon {
+            background: #303e2d;
+        }
+        &:nth-child(14) .ui-checkboxradio-icon {
+            background: #17123b;
+        }
+        &:nth-child(15) .ui-checkboxradio-icon {
+            background: #000000;
+        }
+        &:nth-child(16) .ui-checkboxradio-icon {
+            background: url(../img/icons-bundle.png) -588px -146px no-repeat;
+            width: 29px;
+            height: 29px;
+        }
+        &:hover {
+            .wpcf7-list-item-label {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+    .wpcf7-list-item-label {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transition: opacicty .5s 0s;
+        background: white;
+        padding: 2px 5px;
+        border: 1px solid $color1;
+        border-radius: 5px;
+        z-index: 1;
+        white-space: nowrap;
+        pointer-events: none;
+    }
+}
+
+.f-size-radio {
+    max-width: 200px;
+    display: block;
+    .wpcf7-list-item {
+        display: inline-block;
+        width: 42px;
+        height: 42px;
+        margin: 3px;
+        .ui-state-active {
+            .ui-checkboxradio-icon:before {
+                display: none;
+            }
+            .ui-checkboxradio-icon {
+                background-color: #0184d3;
+                background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
+                border: 0;
+            }
+            .wpcf7-list-item-label {
+                color: white;
+            }
+        }
+    }
+    .wpcf7-list-item-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        font-size: 18px;
+        font-weight: 300;
+        text-align: center;
+        line-height: 42px;
+        color: black;
+    }
+    .ui-checkboxradio-icon {
+        border: 2px solid #dadada;
+        border-radius: 4px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

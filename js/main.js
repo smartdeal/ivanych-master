@@ -29,6 +29,7 @@ jQuery(function($) {
     $(document).ready(function() {
         init();
         aload();
+        form_product_init();
 
         if ($('.js-slick').length) {
             loadCSS(theme_url + '/js/slick/slick.css');
@@ -45,18 +46,23 @@ jQuery(function($) {
                 slider_testimonails_vk_init();
                 slider_service_examples_init();
                 slider_interaction_init();
+                slider_grid_init();
             });
             $(window).on('resize orientationchange', function() {
                 $('.js-slick').slick('resize');
             });
         }
 
-        if ($('.js-form-ui').length) {
+        if ($('.js-form-ui').length && typeof selectmenu == 'undefined') {
             // loadCSS(theme_url+'/js/jquery-ui/jquery-ui.min.css');
-            // loadCSS(theme_url+'/js/jquery-ui/jquery-ui.structure.min.css');
-            // $.loadScript(theme_url+'/js/jquery-ui/jquery-ui.min.js', function(){
-            //     $( ".chk-radio" ).buttonset();
-            // });
+            $.loadScript(theme_url+'/js/jquery-ui/jquery-ui.min.js', function(){
+                $( '.wpcf7-radio' ).controlgroup();
+                $( "#datepicker" ).datepicker({
+                    inline: true
+                });
+                $( ".wpcf7-select" ).selectmenu();
+
+            });
         }
 
         $('input[type=tel]').inputmask({
@@ -395,6 +401,38 @@ jQuery(function($) {
         }
     }
 
+    function slider_grid_init() {
+        if ($('.js-slider-grid').length) {
+            $('.js-slider-grid')
+                .on('init', function(event, slick) {
+                    $(this).addClass('is_showed');
+                })
+                .slick({
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    arrows: true,
+                    responsive: [{
+                            breakpoint: 99999,
+                            settings: "unslick"
+                        },
+                        {
+                            breakpoint: 768,
+                            settings: {
+                                slidesToShow: 2,
+                            }
+                        },
+                        {
+                            breakpoint: 550,
+                            settings: {
+                                slidesToShow: 1,
+                            }
+                        },
+                    ]
+                });
+        }
+    }
+
     function slider_testimonails_init() {
         if ($('.js-slider-testimonails').length) {
             $('.js-slider-testimonails')
@@ -532,6 +570,35 @@ jQuery(function($) {
                         }
                     ]
                 });
+        }
+    }
+
+    function form_product_init(){
+        if ($('.js-form-product').length){
+            var str;
+            var $form = $('.js-form-product');
+            $form.find('.f-price-radio .wpcf7-list-item-label').each(function(index, el) {
+                str = $(this).text();
+                $(this)
+                    .text('от '+product_price[index]['num']+' Р '+str)
+                    .append('<span class="wpcf7-label-info"></span></span><span class="wpcf7-label-ballon">'+product_price[0]['desc']+'</span>');
+                
+            });
+            $form.find('.f-price-radio .wpcf7-list-item')
+                .on('hover', '.wpcf7-label-info', function(event) {
+                    $(this).siblings('.wpcf7-label-ballon').addClass('show');
+                })
+                .on('mouseleave', '.wpcf7-label-info', function(event) {
+                    $(this).siblings('.wpcf7-label-ballon').removeClass('show');
+                });
+            var img_src_0 = product_imgs_color[0];
+            $('.f-ui-form_product .f-img').css('background-image','url('+img_src_0+')');
+            $form.find('.f-color-radio input[name="fld-color"]').change(function(event) {
+                var img_src = product_imgs_color[$(this).closest('.wpcf7-list-item').index()];
+                if (img_src) $('.f-ui-form_product .f-img').css('background-image','url('+img_src+')');
+                    else $('.f-ui-form_product .f-img').css('background-image','url('+img_src_0+')');
+                
+            });
         }
     }
 

@@ -24,16 +24,19 @@
     }
     &-item {
         width: 50%;
-        max-width: 175px;
         display: inline-block;
         vertical-align: top;
         font-size: 16px;
         padding: 10px;
         margin-bottom: 10px;
         text-align: center;
-        @include mn1200 {
+        @include mn768 {
             max-width: none;
             width: 25%;
+        }
+        &__inner {
+            max-width: 175px;
+            margin: 0 auto;
         }
         &__img {
             background: url(../img/tmp/grid-elem.jpg) center no-repeat;
@@ -56,6 +59,19 @@
             font-weight: 300;
             color: #2b3338;
             margin: 10px 0;
+            height: 40px;
+            overflow: hidden;
+            &:after {
+                content: '';
+                display: inline-block;
+                vertical-align: middle;
+                height: 100%;
+                width: 0;
+            }
+            a {
+                display: inline-block;
+                vertical-align: middle;
+            }
         }
         &__btn {
             font-size: 12px;
