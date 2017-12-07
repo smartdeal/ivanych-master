@@ -62,13 +62,14 @@
     </div>
 <?php endif ?>   
 
-<?php $order_form = get_field('contact-form'); ?>
-<?php if ($order_form): ?>
-    <div class="b-form b-form_service">
-        <div class="b-form__title title-line title-line_blue"><span><?php echo get_the_title($order_form) ?></span></div>
-        <?php echo do_shortcode( '[contact-form-7 id="'.$order_form.'"]' ); ?>
-    </div>
-<?php endif; ?>
+<div class="b-form b-form_service">
+    <?php 
+        $form_title = get_field('form_title');
+        if (!$form_title) $form_title = 'Заказать услугу - '.get_custom_title();
+    ?>
+    <div class="b-form__title title-line title-line_blue"><span><?php echo $form_title ?></span></div>
+    <?php echo do_shortcode( '[contact-form-7 id="485" title="Форма услуги"]' ); ?>
+</div>
 
 <?php $content = get_field('content_block_3'); ?>
 <?php if ($content): ?>

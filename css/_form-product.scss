@@ -3,19 +3,6 @@
 $grid-space: 10px;
 
 
-.f-ui-form_product {
-    .f-img-wrap {
-        max-width: 330px;
-    }
-    .f-img {
-        @include image-search-hover;
-        height: 360px;
-        background: url('') center no-repeat;
-        background-size: contain;
-        transition: background .5s 0s;
-    }
-}
-
 .f-row {
     @include cf;
     margin: 0 (-1)*$grid-space;
@@ -35,10 +22,14 @@ $grid-space: 10px;
 }
 
 .f-ui-form {
+    display: none;
     .wpcf7-list-item {
         display: block;
         margin: 10px 0;
         position: relative;
+    }
+    .wpcf7-list-item-label {
+        display: inline-block;
     }
     .f-label {
         font-size: 20px;
@@ -48,33 +39,113 @@ $grid-space: 10px;
     input[type="radio"] {
         opacity: .5;
     }
-    .ui-checkboxradio {
-        &-radio-label {
-            display: block;
-            &.ui-state-active .ui-checkboxradio-icon:before {
-                position: absolute;
-                content: '';
-                width: 15px;
-                height: 15px;
-                background-color: #0187d8;
-                border-radius: 50%;
-                left: 5px;
-                top: 5px;
-                border: 1px solid white;
-            }
-            input {
-                display: none;
-            }
+
+    .fld-print-file {
+        display: none;
+    }
+    .btn_file {
+        display: inline-block;
+        vertical-align: middle;
+        width: auto;
+        padding: 15px 25px;
+    }
+    .f-print-file-name {
+        padding-left: 1em;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .wpcf7-form-control-wrap.indnum {
+        display: none;
+    }
+}
+
+.ui-checkboxradio {
+    &-label {
+        display: block;
+        &.ui-state-active .ui-checkboxradio-icon:before {
+            position: absolute;
+            content: '';
+            width: 15px;
+            height: 15px;
+            background-color: #0187d8;
+            border-radius: 50%;
+            left: 5px;
+            top: 5px;
+            border: 1px solid white;
         }
-        &-icon {
-            display: inline-block;
-            vertical-align: middle;
-            width: 29px;
-            height: 29px;
-            background-color: white;
-            border: 1px solid #dadada;
-            border-radius: 15px;
-            position: relative;
+        input {
+            display: none;
+        }
+    }
+    &-icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 29px;
+        height: 29px;
+        background-color: white;
+        border: 1px solid #dadada;
+        border-radius: 15px;
+        position: relative;
+    }
+}
+
+.ui-selectmenu {
+    &-button {
+        display: inline-block;
+        background: white;
+        border: 1px solid #cdcdcd;
+        padding: 0 25px;
+        border-radius: 50px;
+        font-weight: 400;
+        position: relative;
+        height: 44px;
+        font-size: 16px;
+        line-height: 44px;
+    }
+    &-icon {
+        width: 44px;
+        height: 44px;
+        background-color: #dde0e5;
+        background-image: linear-gradient(to right, #0f6aa7 0%, #0087d8 100%);
+        box-shadow: 0 10px 20px rgba(0, 91, 146, 0.2);
+        position: absolute;
+        right: 0;
+        top: 0;
+        border-radius: 50%;
+        cursor: pointer;
+        &::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 3px solid white;
+            border-left: 0;
+            border-top: 0;
+            position: absolute;
+            transform: rotate(45deg);
+            left: 15px;
+            top: 12px;
+        }
+    }
+}
+
+.ui-menu {
+    background: white;
+    border: 1px solid #cdcdcd;
+    padding: 0;
+    margin: 0;
+    border-radius: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    margin-top: 10px;
+    display: inline-block;
+    width: auto;
+    &-item {
+        border-bottom: 1px solid #cdcdcd;
+        &:last-child {
+            border-bottom: 0;
+        }
+        &-wrapper {
+            padding: 10px 20px;
         }
     }
 }
@@ -235,6 +306,10 @@ $grid-space: 10px;
         z-index: 1;
         white-space: nowrap;
         pointer-events: none;
+        display: none;
+        @include mn1200 {
+            display: block;
+        }
     }
 }
 
@@ -280,5 +355,183 @@ $grid-space: 10px;
         top: 0;
         width: 100%;
         height: 100%;
+    }
+}
+
+.f-print-radio {
+    font-size: 18px;
+    .wpcf7-list-item {
+        display: inline-block;
+        margin-right: 40px;
+    }
+    .wpcf7-list-item-label {
+        padding-left: 10px;
+    }
+}
+
+.f-print-size {
+    .wpcf7-list-item {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 20px;
+        font-size: 18px;
+        &:nth-child(3) {
+            @include mn1200 {
+                margin-right: 90px;
+            }
+        }
+    }
+    .wpcf7-list-item-label {
+        padding-left: 7px;
+    }
+}
+
+.f-print-place {
+    .wpcf7-list-item {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 18px;
+        width: 100%;
+        padding-right: 10px;
+        @include mn550 {
+            width: 50%;
+        }
+    }
+    .wpcf7-list-item-label {
+        padding-left: 7px;
+    }
+}
+
+.f-row_img {
+    margin-bottom: 20px;
+}
+
+.f-row_delivery {
+    background: #f0f3f5;
+    padding: 3% 5%;
+    margin-bottom: 40px;
+}
+
+.f-maket__inner {
+    position: relative;
+    float: left;
+    width: 100%;
+    background: #f0f3f5;
+    padding: 3% 5%;
+    margin-bottom: 40px;
+    &::before {
+        @include mn768 {
+            position: absolute;
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: inherit;
+            top: -10px;
+            left: 50%;
+            margin-left: 14px;
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.f-print-draw {
+    font-size: 18px;
+    margin-bottom: 20px;
+    .wpcf7-list-item-label {
+        padding-left: 7px;
+    }
+}
+
+.f-print-file {
+    margin-bottom: 20px;
+    .f-label {
+        font-size: 16px;
+    }
+}
+
+.f-print-text {
+    .wpcf7-form-control-wrap {
+        display: block;
+    }
+}
+
+.f-delivery-method {
+    margin-bottom: 20px;
+    .ui-selectmenu-button.ui-button {
+        width: 15em;
+        max-width: 100%;
+        margin-right: 30px;
+    }
+    .fld-delivery {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+.f-delivery-time {
+    display: inline-block;
+    vertical-align: middle;
+    &::before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 10px;
+        background: url(../img/icons-bundle.png) center no-repeat;
+        background-position: -501px -215px;
+        width: 17px;
+        height: 17px;
+    }
+}
+
+.f-delivery-adr {
+    .wpcf7-form-control-wrap {
+        display: block;
+    }
+}
+
+.f-ind-num {
+    margin: 20px 0;
+    font-size: 18px;
+    .ind-number {
+        font-weight: 700;
+    }
+}
+
+.f-ui-form_product {
+    .f-img-wrap {
+        max-width: 330px;
+        text-align: center;
+    }
+    .f-img {
+        @include image-search-hover;
+        height: 360px;
+        background: url('') center no-repeat;
+        background-size: contain;
+        transition: background .5s 0s;
+        margin-bottom: 30px;
+    }
+    .f-one-click-btn {
+        font-size: 16px;
+        padding: 20px 30px;
+        margin-bottom: 20px;
+    }
+    .f-desc {
+        text-align: left;
+        b {
+            display: block;
+        }
+        a {
+            color: $color1;
+            white-space: nowrap;
+            font-weight: 700;
+        }
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="date"],
+    textarea {
+        background: white;
+        border: 1px solid #cdcdcd;
     }
 }

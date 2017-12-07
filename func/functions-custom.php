@@ -20,7 +20,7 @@ function the_footer_useful(){
         $out .= '<div class="b-news b-news_footer js-slick js-news-footer">';
         while ( $query->have_posts() ): 
             $query->the_post();    
-            $out .= '<div class="b-news__item"><a class="b-news__link" href="#" title="'.get_the_title().'">';
+            $out .= '<div class="b-news__item"><a class="b-news__link" href="'.get_the_permalink().'" title="'.get_the_title().'">';
             if (has_post_thumbnail()) $img_src = wp_get_attachment_image_url(get_post_thumbnail_id(),'medium');
                 else $img_src = get_template_directory_uri().'/img/placeholder.jpg';
             $out .= '<div class="b-news__img" style="background-image:url('.$img_src.');"></div>';
@@ -47,7 +47,7 @@ function the_last_news($num){
         $out .= '<div class="b-news">';
         while ( $query->have_posts() ): 
             $query->the_post();    
-            $out .= '<div class="b-news__item"><a class="b-news__link" href="#" title="'.get_the_title().'">';
+            $out .= '<div class="b-news__item"><a class="b-news__link" href="'.get_the_permalink().'" title="'.get_the_title().'">';
             if (has_post_thumbnail()) $img_src = wp_get_attachment_image_url(get_post_thumbnail_id(),'medium');
                 else $img_src = get_template_directory_uri().'/img/placeholder.jpg';
             $out .= '<div class="b-news__img" style="background-image:url('.$img_src.');"></div>';
@@ -60,10 +60,14 @@ function the_last_news($num){
     echo $out;
 }
 
-function the_custom_title(){
+function get_custom_title(){
     $title = get_field('page_title');
     if (!$title) $title = get_the_title();
-    echo $title;
+    return $title;
+}
+
+function the_custom_title(){
+    echo get_custom_title();
 }
 
 function the_managers(){

@@ -39,8 +39,9 @@
         justify-content: space-between;
         align-items: center;
     }
-    .menu-item {
+    &>.menu-item {
         padding: 5px 0;
+        transition: background 1s 0s;
         @include mn992 {
             padding: 18px;
         }
@@ -48,20 +49,30 @@
             color: $dark;
             background: $color2;
             &>.sub-menu {
-                display: block;
+                max-height: 700px;
+                transition: max-height 1s 0s;
             }
         }
         &>.sub-menu {
-            display: none;
+            display: block;
+            color: $dark;
             position: absolute;
             top: 100%;
             left: 10px;
             background: $color2;
+            z-index: 2;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 1s 0s;
+            &.opened {}
             &>.menu-item {
-                padding-top: 10px;
-                padding-bottom: 10px;
+                padding: 0;
                 &:hover {
-                        background: #ffbb00;
+                    background: #ffbb00;
+                }
+                &>a {
+                    padding: 10px;
+                    display: block;
                 }
             }
         }

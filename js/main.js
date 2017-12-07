@@ -54,15 +54,36 @@ jQuery(function($) {
         }
 
         if ($('.js-form-ui').length && typeof selectmenu == 'undefined') {
-            // loadCSS(theme_url+'/js/jquery-ui/jquery-ui.min.css');
+            // loadCSS(theme_url+'/js/jquery-ui/jquery-ui.structure.min.css');
+            $.loadScript(theme_url+'/js/jquery-ui/jquery-ui.datepicker-ru.js', function(){});
             $.loadScript(theme_url+'/js/jquery-ui/jquery-ui.min.js', function(){
-                $( '.wpcf7-radio' ).controlgroup();
-                $( "#datepicker" ).datepicker({
-                    inline: true
-                });
-                $( ".wpcf7-select" ).selectmenu();
+                $( '.js-form-ui .wpcf7-radio' ).controlgroup();
+                $( '.js-form-ui input[type="checkbox"]' ).checkboxradio();
+                $.datepicker.regional['ru'] = {
+                    closeText: "Закрыть",
+                    prevText: "&#x3C;Пред",
+                    nextText: "След&#x3E;",
+                    currentText: "Сегодня",
+                    monthNames: [ "Январь","Февраль","Март","Апрель","Май","Июнь", "Июль","Август","Сентябрь","Октябрь","Ноябрь","Декабрь" ],
+                    monthNamesShort: [ "Янв","Фев","Мар","Апр","Май","Июн", "Июл","Авг","Сен","Окт","Ноя","Дек" ],
+                    dayNames: [ "воскресенье","понедельник","вторник","среда","четверг","пятница","суббота" ],
+                    dayNamesShort: [ "вск","пнд","втр","срд","чтв","птн","сбт" ],
+                    dayNamesMin: [ "Вс","Пн","Вт","Ср","Чт","Пт","Сб" ],
+                    weekHeader: "Нед",
+                    dateFormat: "dd.mm.yy",
+                    firstDay: 1,
+                    isRTL: false,
+                    showMonthAfterYear: false,
+                    yearSuffix: "" };
+                $.datepicker.setDefaults($.datepicker.regional['ru']);
+                $( '.js-form-ui [name="fld-date"]' ).datepicker();
+                $( '.js-form-ui select' ).selectmenu();
+                $( '.js-form-ui').slideDown(1000);
 
             });
+            var ind_num = Math.floor(Math.random() * (9999999 - 1000000)) + 1000000;
+            $('input.indnum').val(ind_num);
+            $('.ind-number').text(ind_num);
         }
 
         $('input[type=tel]').inputmask({
@@ -105,6 +126,17 @@ jQuery(function($) {
             $parent.toggleClass('opened');
         });
 
+        // $('.topmenu .menu-item').hover(function() {
+        //     $(this).addClass('opened');
+        // }, function() {
+        //     $(this).removeClass('opened');
+        // });
+        // $('.topmenu .sub-menu').mouseenter(function(event) {
+        //     $(this).addClass('opened');
+        // });
+        // $('.topmenu .sub-menu').mouseout(function(event) {
+        //     $(this).removeClass('opened');
+        // });
 
         $('.wsp-pages-title').wrapInner('<span></span>');
         $('.tablepress').wrap('<div class="tablepress-responsible"></div>');
@@ -129,6 +161,14 @@ jQuery(function($) {
             }, 1000);            
         });
 
+        $('.f-ui-form .js-print-file-btn').click(function(event) {
+            $(this).closest('.f-fields').find('input[type=file]').click();
+        });
+        $('.f-ui-form input[type=file]').change(function(event) {
+            var url = $(this).val();
+            var filename = url.split('/').pop().split('\\').pop();
+            $(this).closest('.f-fields').find('.f-print-file-name').text(filename);
+        });
 
         if ($('#map').length) {
             $.loadScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', function() {

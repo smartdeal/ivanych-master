@@ -17,6 +17,8 @@
         <div class="content__list">
             <div class="b-news">
                 <?php while (have_posts()): the_post(); 
+                if ( ('product' == get_post_type() || 'service' == get_post_type()) && $post->post_parent )
+                    continue;
                     $post_title = get_the_title(); 
                     $post_link = get_the_permalink();
                 ?>
@@ -28,7 +30,9 @@
                     <?php endif; ?>
                     <div class="b-news__body">
                         <a href="<?php echo $post_link; ?>" class="b-news__title" itemprop="headline" title="Перейти на страницу <?php echo $post_title; ?>"><?php echo $post_title; ?></a>
-                        <div class="b-news__txt" itemprop="articleBody"><?php the_excerpt(); ?></div>
+                        <?php if (get_the_excerpt()): ?>
+                            <div class="b-news__txt" itemprop="articleBody"><?php the_excerpt(); ?></div>
+                        <?php endif; ?>
                     </div>
                     <div class="b-news____btn-wrap">
                         <a href="<?php echo $post_link; ?>" class="b-news__btn-more" title="Перейти на страницу <?php echo $post_title; ?>">Подробнее</a>

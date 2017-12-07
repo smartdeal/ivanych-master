@@ -51,8 +51,9 @@ add_action( 'wp_dashboard_setup', 'shortcodes_add_dashboard_widgets' );
 
 function shortcodes_dashboard_widget_function() {
     echo 'Шорткоды для отображения информации в контенте страниц, записей и т.д.:<br>';
-    echo '[get_tel] - Показать телефон студии<br>';
-    echo '[get_team_about] - Показать блок "О НАС" с бегающими цифрами. Блок редактируется на странице <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Настройки сайта</a><br>';
+    echo '[get_tel] - Показать телефон. <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Редактируется</a> в настройках<br>';
+    echo '[get_email] - Показать email. <a href="'.home_url().'/wp-admin/admin.php?page=acf-options-nastrojki-sajta">Редактируется</a> в настройках<br>';
+    echo '[get_work_examples] - Показать примеры выполненных работ на страницах услуг и товаров.<br>';
 }
 
 
