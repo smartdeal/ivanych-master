@@ -26,6 +26,9 @@
     }
     &__caption {
         font-family: "Bebas";
+        @include mn992 {
+            letter-spacing: 3px;
+        }
     }
     &__text {
         font-size: .5em;

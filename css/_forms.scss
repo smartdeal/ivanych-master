@@ -46,6 +46,7 @@ input {
         display: block;
     }
     .wpcf7-not-valid {
+        border-bottom: 1px solid;
         border-color: red !important;
     }
     div.wpcf7-response-output {
@@ -336,7 +337,11 @@ input {
             font-family: "Bebas";
             color: white;
             margin-bottom: .5em;
-            font-size: 42px;
+            font-size: 38px;
+            @include mn768 {
+                font-size: 42px;
+                letter-spacing: 8px;
+            }
             @include mn1200 {
                 text-align: left;
                 font-size: 53px;
@@ -368,13 +373,15 @@ input {
             position: absolute;
             right: 0;
             top: 0;
-            bottom: 0;
+            height: 47px;
             font-size: 10px;
             line-height: 27px;
+            padding: 0 25px;
             @include mn768 {
                 font-size: 14px;
                 line-height: 36px;
                 padding: 10px 35px;
+                height: 57px;
             }
         }
         &__txt {
@@ -409,6 +416,9 @@ input {
             &:after {
                 left: -35px;
             }
+        }
+        .wpcf7-form-control-wrap {
+            margin: 0;
         }
     }
 }
@@ -463,5 +473,19 @@ input {
             padding: 20px 70px;
             margin-left: 0;
         }
+    }
+}
+
+.popup-form {
+    max-width: 350px;
+    margin: 40px auto;
+    position: relative;
+    background: #f0f3f5;
+    .b-form__title {
+        font-size: 28px;
+        font-weight: 700;
+        text-align: center;
+        padding: 20px;
+        background: #ffce47;
     }
 }

@@ -185,3 +185,26 @@ function get_gallery($title =''){
     endif;
     return $out;
 }
+
+function the_tel_link($tel = '') {
+    echo 'tel:'.preg_replace("/[^0-9+]/","",$tel);
+}
+
+// set_menu_icons_to_js();
+function set_menu_icons_to_js() {
+    $out = '';
+    $arg =  array(
+        'posts_per_page' => -1,
+        'post_type' => array('service','product'),
+        'post_status' => 'publish',
+    );
+    $query = new WP_Query($arg);
+    if ($query->have_posts() ):    
+        while ( $query->have_posts() ): 
+            $query->the_post();    
+            $icon = get_field('icon-menu');
+            if ($icon) echo get_the_ID().'-'.$icon.'<br>';
+        endwhile;
+    endif;
+    wp_reset_postdata();
+}

@@ -41,9 +41,9 @@
                         <a href="mailto:<?php echo $main_email ?>" class="header__email"><?php echo $main_email ?></a>
                     <?php endif; ?>
                     <?php if ($main_tel = get_field('option_tel','option')): ?>
-                        <a class="header__tel" href="tel:<?php echo preg_replace("/[^0-9+]/","",$main_tel); ?>"><?php echo $main_tel; ?></a>
+                        <a class="header__tel" href="<?php the_tel_link($main_tel) ?>"><?php echo $main_tel; ?></a>
                     <?php endif; ?>
-                    <a class="header__call-btn btn btn_c2 js-btn-call">Заказать звонок</a>
+                    <a class="header__call-btn btn btn_c2 js-get-popup-form" href="#popup-form_feedback">Заказать звонок</a>
                 </div>
                 <a class="mmenu-btn js-mmenu-btn">
                     <span></span>
@@ -56,15 +56,22 @@
     <div class="header__menu-wrap">
         <div class="container">
             <div class="header__menu js-header-menu">
-                <?php
-                    wp_nav_menu( array(
-                        'theme_location'    => 'primary',
-                        'depth'             => 2,
-                        'container'         => 'ul',
-                        'menu_class'        => 'topmenu',
-                        'container_class'   => 'cont',
-                        'container_id'      => '',
-                    ));
+                <?php 
+                    if (function_exists('wp_nav_menu')) {
+                        $add_menu = '<ul class="topmenu">';
+                        $add_menu .= '<li id="menu-item-0000" class="menu-item wide menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-0000"><a href="#">Промпечать</a>';
+                        $add_menu .= wp_nav_menu( array( 'menu' => 5,   'container' => '', 'fallback_cb' => '', 'menu_class' => 'sub-menu', 'echo' => false ) );
+                        $add_menu .='</li>';
+                        $add_menu .= '<li id="menu-item-0001" class="menu-item wide menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-0001"><a href="/service/">Услуги печати</a>';
+                        $add_menu .= wp_nav_menu( array( 'menu' => 6,   'container' => '', 'fallback_cb' => '', 'menu_class' => 'sub-menu', 'echo' => false ) );
+                        $add_menu .='</li>';
+                        $add_menu .= '<li id="menu-item-0002" class="menu-item wide menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-0002"><a href="/product/">Товары</a>';
+                        $add_menu .= wp_nav_menu( array( 'menu' => 7,   'container' => '', 'fallback_cb' => '', 'menu_class' => 'sub-menu', 'echo' => false ) );
+                        $add_menu .='</li>';
+                        $add_menu .= wp_nav_menu( array( 'menu' => 2,   'container' => '', 'fallback_cb' => '', 'items_wrap' => '%3$s', 'menu_class' => '', 'echo' => false ) );
+                        $add_menu .='</ul>';
+                        echo($add_menu); 
+                    }; 
                 ?>
             </div>
         </div>

@@ -6,11 +6,33 @@
 	<div class="sidebar">
 		<div class="b-widget b-widget_services">
 			<div class="b-widget__title">Услуги</div>
-			<div class="b-widget__body"></div>
+			<div class="b-widget__body">
+				<?php 
+                    wp_nav_menu( array(
+                        'menu' 				=> 6,
+                        'depth'             => 3,
+                        'container'         => 'ul',
+                        'menu_class'        => 'side-menu',
+                        'container_class'   => 'cont',
+                        'container_id'      => '',
+                    ));
+				?>
+			</div>
 		</div>
 		<div class="b-widget b-widget_products">
 			<div class="b-widget__title">Товары</div>
-			<div class="b-widget__body"></div>
+			<div class="b-widget__body">
+				<?php 
+                    wp_nav_menu( array(
+                        'menu' 				=> 7,
+                        'depth'             => 3,
+                        'container'         => 'ul',
+                        'menu_class'        => 'side-menu',
+                        'container_class'   => 'cont',
+                        'container_id'      => '',
+                    ));
+				?>				
+			</div>
 		</div>
 		<div class="b-widget b-widget_news">
 		    <div class="b-widget__title">Новости</div>

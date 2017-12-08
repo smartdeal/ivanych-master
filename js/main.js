@@ -108,6 +108,22 @@ jQuery(function($) {
             $('.js-header-menu').slideToggle();
         });
 
+        $('.js-header-menu .menu-item-has-children').click(function(event) {
+            if (window_width < 992){
+                if ($(this).hasClass('opened')) {
+                    window.location.href = $(this).children('a').attr('href');
+                } else {
+                    $('.js-header-menu .menu-item-has-children').removeClass('opened');
+                    $(this).addClass('opened');
+                    event.preventDefault();
+                }
+            }
+        });
+
+        $('.js-header-menu').click(function(event) {
+
+        });
+
         $('.js-btn-accordeon-more').click(function(event) {
             event.preventDefault();
             $(this)
@@ -161,6 +177,11 @@ jQuery(function($) {
             }, 1000);            
         });
 
+        $('.js-get-popup-form').magnificPopup({
+          type:'inline',
+        });
+
+        // START form PRODUCT 
         $('.f-ui-form .js-print-file-btn').click(function(event) {
             $(this).closest('.f-fields').find('input[type=file]').click();
         });
@@ -169,6 +190,22 @@ jQuery(function($) {
             var filename = url.split('/').pop().split('\\').pop();
             $(this).closest('.f-fields').find('.f-print-file-name').text(filename);
         });
+
+        $('input[name="fld-print"]').change(function(event) {
+            if ($(this).val() == 'Да') {
+                $('.f-row_maket').slideDown();
+            } else {
+                $('.f-row_maket').slideUp();
+                $('input[name="fld-print-size"]').prop( "checked", false ).change();
+                $('input[name="fld-print-place"]').prop( "checked", false ).change();
+                $('input[name="fld-print-draw[]"]').prop( "checked", false ).change();
+                $('input[name="fld-print-text"]').val('');
+                $('input[name="fld-print-file"]').val('');
+            }
+        });
+
+        // js-form-need-maket
+        // END form PRODUCT
 
         if ($('#map').length) {
             $.loadScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', function() {

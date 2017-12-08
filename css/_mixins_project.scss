@@ -393,3 +393,112 @@
         background-position: -450px 0;
     }
 }
+
+.icon-menu-product {
+    &::before {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 20px;
+        background: url(../img/icons-bundle-menu.png) no-repeat;
+        background-position: 0px 0px;
+        position: relative;
+    }
+}
+
+.icon-menu-tshirt {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: 0px 0px;
+    }
+}
+.icon-menu-polo {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -22px 0px;
+    }
+}
+.icon-menu-hoody {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -44px 0px;
+    }
+}
+.icon-menu-swish {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -66px 0px;
+    }
+}
+.icon-menu-vetr {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -88px 0px;
+    }
+}
+.icon-menu-fart {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -110px 0px;
+    }
+}
+.icon-menu-spec {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -132px 0px;
+    }
+}
+.icon-menu-sign {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -154px 0px;
+    }
+}
+.icon-menu-sport {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -176px 0px;
+    }
+}
+.icon-menu-hat {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: 0px -22px;
+    }
+}
+.icon-menu-kaska {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -22px -22px;
+    }
+}
+.icon-menu-bag {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -44px -22px;
+    }
+}
+.icon-menu-cap {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -66px -22px;
+    }
+}
+.icon-menu-phone {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -88px -22px;
+    }
+}
+.icon-menu-puzzle {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -110px -22px;
+    }
+}
+.icon-menu-woman {
+    @extend .icon-menu-product;
+    &::before {
+        background-position: -132px -22px;
+    }
+}

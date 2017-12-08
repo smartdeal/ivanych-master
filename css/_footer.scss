@@ -49,3 +49,70 @@
         margin-top: 30px;
     }
 }
+
+.footer {
+    &__inner {
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-direction: column;
+        color: white;
+        text-align: center;
+        @include mn768 {
+            flex-direction: row;
+            text-align: left;
+        }
+    }
+    &__item {
+        margin: 0 auto 30px;
+        @include mn768 {
+            margin: 0;
+        }
+    }
+    &__menus {
+        display: none;
+        margin: 0 30px;
+        @include mn768 {
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -ms-flex;
+            display: -o-flex;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        @include mn1200 {
+            width: 50%;
+        }
+    }
+    &__menu {
+        font-size: 14px;
+        padding: 0 5%;
+        .menu-item a {
+            margin-bottom: 15px;
+            display: inline-block;
+            text-decoration: underline;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    &__title {
+        font-family: "Bebas";
+        font-size: 22px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        margin-bottom: 10px;
+        &_menu {
+            text-decoration: underline;
+        }
+    }
+    &__visa {
+        margin: 10px 0 20px;
+    }
+}

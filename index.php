@@ -7,10 +7,10 @@
                 <h1 itemprop="headline"><?php the_title(); ?></h1>
             </div>    
             <div class="content__body">
-                        <?php if (has_post_thumbnail()): ?>
-                            <img class="content__img" data-aload="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'medium'); ?>">
-                        <?php endif; ?>
-                        <div class="content__txt" itemprop="articleBody"><?php the_content(); ?></div>
+                <?php if (has_post_thumbnail()): ?>
+                    <img class="content__img" data-aload="<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(),'medium'); ?>">
+                <?php endif; ?>
+                <div class="content__txt" itemprop="articleBody"><?php the_content(); ?></div>
             </div>
         </div>
     <?php endwhile ?>
