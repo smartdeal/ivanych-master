@@ -182,13 +182,13 @@ jQuery(function($) {
         });
 
         // START form PRODUCT 
-        $('.f-ui-form .js-print-file-btn').click(function(event) {
+        $('.f-ui-form .js-file-btn').click(function(event) {
             $(this).closest('.f-fields').find('input[type=file]').click();
         });
         $('.f-ui-form input[type=file]').change(function(event) {
             var url = $(this).val();
             var filename = url.split('/').pop().split('\\').pop();
-            $(this).closest('.f-fields').find('.f-print-file-name').text(filename);
+            $(this).closest('.f-fields').find('.f-file-name').text(filename);
         });
 
         $('input[name="fld-print"]').change(function(event) {
@@ -204,8 +204,22 @@ jQuery(function($) {
             }
         });
 
-        // js-form-need-maket
         // END form PRODUCT
+
+        if (typeof menu_icons !== 'undefined') {
+            $('.topmenu .menu-item, .side-menu .menu-item').each(function(index, el) {
+                var num;
+                var classList = $(el).attr('class').split(/\s+/);
+                $.each(classList, function(index, item) {
+                    if (item.indexOf('wpse-object-id') !== -1) {
+                        num = item.replace(/[^0-9]/g, '');
+                        if (num in menu_icons) {
+                            $(el).prepend('<span class="menu-icon '+menu_icons[num]+'"></span>')
+                        }
+                    }
+                });                        
+            });
+        }
 
         if ($('#map').length) {
             $.loadScript('//api-maps.yandex.ru/2.1/?lang=ru_RU', function() {
@@ -654,11 +668,16 @@ jQuery(function($) {
         if ($('.js-form-product').length){
             var str;
             var $form = $('.js-form-product');
+            var price;
             $form.find('.f-price-radio .wpcf7-list-item-label').each(function(index, el) {
                 str = $(this).text();
+                price = product_price[index]['num'];
+                desc = product_price[index]['desc'];
+                if (!price) price = 0;
+                if (desc.length) desc = '<span class="wpcf7-label-info"></span></span><span class="wpcf7-label-ballon">'+desc+'</span>';
                 $(this)
-                    .text('от '+product_price[index]['num']+' Р '+str)
-                    .append('<span class="wpcf7-label-info"></span></span><span class="wpcf7-label-ballon">'+product_price[0]['desc']+'</span>');
+                    .text('от '+price+' Р '+str)
+                    .append(desc);
                 
             });
             $form.find('.f-price-radio .wpcf7-list-item')

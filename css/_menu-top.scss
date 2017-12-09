@@ -192,3 +192,29 @@
         }
     }
 }
+
+// icons
+.topmenu {
+    .menu-icon {
+        display: none;
+        margin-right: 5px;
+    }
+    .menu-item.col>.sub-menu>.menu-item {
+        >a,
+        >.menu-icon {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+}
+
+.side-menu {
+    .menu-item.col>.sub-menu>.menu-item {
+        position: relative;
+        .menu-icon {
+            position: absolute;
+            top: 11px;
+            left: 22px;
+        }
+    }
+}

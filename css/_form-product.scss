@@ -36,11 +36,14 @@ $grid-space: 10px;
         font-weight: 700;
         margin-bottom: 20px;
     }
+    .f-fields {
+        font-size: 16px;
+    }
     input[type="radio"] {
         opacity: .5;
     }
 
-    .fld-print-file {
+    .wpcf7-file {
         display: none;
     }
     .btn_file {
@@ -49,7 +52,7 @@ $grid-space: 10px;
         width: auto;
         padding: 15px 25px;
     }
-    .f-print-file-name {
+    .f-file-name {
         padding-left: 1em;
         display: inline-block;
         vertical-align: middle;
@@ -57,6 +60,22 @@ $grid-space: 10px;
     .wpcf7-form-control-wrap.indnum {
         display: none;
     }
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="number"],
+    input[type="date"],
+    textarea {
+        background: white;
+        border: 1px solid #cdcdcd;
+    }
+    .wpcf7-submit {
+        margin: 30px auto 20px;
+        display: block;
+        max-width: 250px;
+        font-size: 16px;
+        padding: 20px;
+    }    
 }
 
 .ui-checkboxradio {
@@ -388,11 +407,6 @@ $grid-space: 10px;
         vertical-align: middle;
         margin-right: 20px;
         font-size: 18px;
-        &:nth-child(3) {
-            @include mn1200 {
-                margin-right: 90px;
-            }
-        }
     }
     .wpcf7-list-item-label {
         padding-left: 7px;
@@ -608,19 +622,13 @@ $grid-space: 10px;
             font-weight: 700;
         }
     }
-    input[type="text"],
-    input[type="tel"],
-    input[type="email"],
-    input[type="date"],
-    textarea {
-        background: white;
-        border: 1px solid #cdcdcd;
-    }
-    .wpcf7-submit {
-        margin: 30px auto 20px;
-        display: block;
-        max-width: 250px;
-        font-size: 16px;
-        padding: 20px;
+    .f-print-size {
+        .wpcf7-list-item {
+            &:nth-child(3) {
+                @include mn1200 {
+                    margin-right: 90px;
+                }
+            }
+        }
     }
 }

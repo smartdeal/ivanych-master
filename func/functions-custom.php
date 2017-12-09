@@ -190,7 +190,7 @@ function the_tel_link($tel = '') {
     echo 'tel:'.preg_replace("/[^0-9+]/","",$tel);
 }
 
-// set_menu_icons_to_js();
+add_action('wp_head', 'set_menu_icons_to_js');
 function set_menu_icons_to_js() {
     $out = '';
     $arg =  array(
@@ -203,8 +203,18 @@ function set_menu_icons_to_js() {
         while ( $query->have_posts() ): 
             $query->the_post();    
             $icon = get_field('icon-menu');
-            if ($icon) echo get_the_ID().'-'.$icon.'<br>';
+            if ($icon) $out[get_the_ID()] = $icon;
         endwhile;
     endif;
     wp_reset_postdata();
+    echo '<script>var menu_icons = '.json_encode($out).'</script>';
+}
+
+add_filter( 'nav_menu_css_class', 'wpse_menu_item_id_class', 10, 2 ); 
+function wpse_menu_item_id_class( $classes, $item )
+{
+    if( isset( $item->object_id ) )
+        $classes[] = sprintf( 'wpse-object-id-%d', $item->object_id );
+
+    return $classes;
 }
